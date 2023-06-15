@@ -1,12 +1,9 @@
 import reacton
 import reacton.ipyvuetify as rv
 import reacton.ipywidgets as w
-from ..model.circuit_utils import create_highlighted_circuit_figures
 
-class WidgetContainer:
+class WidgetContainer(w.VBox):
     def __init__(self, qc):
-        # self.qc_orig = qc
-        # self.qc_with_barriers = add_barriers(qc)
         self.circuit_images = None
         self.dirac_images = None
         self.matrix_images = None
@@ -43,26 +40,25 @@ class WidgetContainer:
     # #             barrier_states[current_selected/2]
     #             barrier_states[2]
     #     return main
+
     @reacton.component
-    def Container(qc_orig, qc_barriers):
+    def Container():
         current_selected, set_current_selected = reacton.use_state(2)
         
-    #     dirac_barrier_states = get_barrier_states(qc, 3)
-        # create_barrier_images(qc_orig)
         with rv.Container() as main:
-            CircuitRow(qc_barriers, current_selected, set_current_selected)
+            CircuitRow(current_selected, set_current_selected)
             # DiracRow(qc_orig, current_selected)
         return main
     
     
-qc = QuantumCircuit(3)
-qc.h(0)
-qc.h(1)
-qc.h(0)
-qc.h(2)
-qc.x(1)
+# qc = QuantumCircuit(3)
+# qc.h(0)
+# qc.h(1)
+# qc.h(0)
+# qc.h(2)
+# qc.x(1)
 
-qc2 = create_highlighted_circuit_figures(qc)
-print(qc.data)
+# qc2 = create_highlighted_circuit_figures(qc)
+# print(qc.data)
 
-WidgetContainer.Container()
+# WidgetContainer.Container()

@@ -53,7 +53,7 @@ def gates_to_figures(qc, directory):
     # Can be done as first gate will always be a barrier
     num_qubits = qc.data[0].operation.num_qubits
     
-    
+    # TODO fix regex
     style_settings = {'displaycolor': {r'*': ('#c12f98', '#FFFFFF')},
                       'gatefacecolor': '#f05400',
                     'barrierfacecolor': '#f05400'}
@@ -81,7 +81,8 @@ def gates_to_figures(qc, directory):
     
     return images       
         
-def create_highlighted_circuit_figures(qc):
+def create_highlighted_circuit_figures(qc: QuantumCircuit):
+    # print(qc)
     parent_directory = os.getcwd()
     directory_circ = "circ"
     path_circ = os.path.join(parent_directory, directory_circ)
