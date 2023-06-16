@@ -8,6 +8,6 @@ def Container(qc, qc_with_barriers):
     current_selected, set_current_selected = reacton.use_state(2)
     
     with rv.Container() as main:
-        CircuitRow(qc_with_barriers, current_selected, set_current_selected)
-        # DiracRow(qc_orig, current_selected)
+        CircuitRow('circ', qc_with_barriers, current_selected, set_current_selected)
+        DiracRow('dirac', current_selected)
     return main
