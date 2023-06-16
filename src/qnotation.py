@@ -12,7 +12,8 @@ class QNotation:
         # TODO fix local storage issue
         # print(qc)
         qc_with_barriers = create_highlighted_circuit_figures(qc)
-        create_matrices_from_circuit(qc)
+        create_dirac_state_images(qc_with_barriers)
+        # create_matrices_from_circuit(qc)
         cls.view = Container(qc, qc_with_barriers)
         display(cls.view)
 
