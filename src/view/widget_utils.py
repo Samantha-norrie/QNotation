@@ -29,6 +29,8 @@ def CircuitRow(directory, qc, current_selected, set_current_selected):
 
 @reacton.component
 def DiracRow(directory, qc, current_selected, set_current_selected):
+    print('in dirac row')
     with rv.Row(style="height 50px") as main:
-        NonClickableImage('dirac', current_selected)
+        print('creating image')
+        NonClickableImage(directory, current_selected)
     return main

@@ -6,7 +6,7 @@ from PIL import Image
 import os
 import shutil
 import matplotlib.pyplot as plt
-plt.rcParams['text.usetex'] = True
+# plt.rcParams['text.usetex'] = True
 
 import numpy as np
 
@@ -33,18 +33,18 @@ def compile_latex_src_dirac_states(qc, barrier_states):
     current_barrier_state_index = 0
 
     for i in range(0, len(qc)):
-        print("NAME",qc.data[i].operation.name)
+        # print("NAME",qc.data[i].operation.name)
         if qc.data[i].operation.name == 'barrier':
-            print('in here')
+            # print('in here')
             latex_src_dirac_states.append('$' + barrier_states[current_barrier_state_index]+'$')
             current_barrier_state_index = current_barrier_state_index+1
         else:
             latex_src_dirac_states.append(qc.data[i].operation.name)
-    print(latex_src_dirac_states)
+    # print(latex_src_dirac_states)
     return latex_src_dirac_states
 
 
-def create_dirac_state_images(qc):
+def create_dirac_state_images(qc_orig, qc_barriers):
     parent_directory = os.getcwd()
     directory_dirac = "dirac"
     
@@ -52,12 +52,12 @@ def create_dirac_state_images(qc):
     if os.path.exists(path_dirac):
         shutil.rmtree(path_dirac)
     os.mkdir(path_dirac) 
-    barrier_latex_states = get_barrier_states(qc, 3)
-    print(barrier_latex_states)
-    latex_src_dirac_states = compile_latex_src_dirac_states(qc, barrier_latex_states)
+    barrier_latex_states = get_barrier_states(qc_orig, 3)
+    # print(barrier_latex_states)
+    latex_src_dirac_states = compile_latex_src_dirac_states(qc_barriers, barrier_latex_states)
     
     for i in range(0, len(latex_src_dirac_states)):
-        print(latex_src_dirac_states[i])
+        # print(latex_src_dirac_states[i])
         fig, ax = plt.subplots()
         ax.text(0.5, 0.5, latex_src_dirac_states[i], fontsize=14, ha='center', va='center', transform=ax.transAxes)
         ax.axis('off')

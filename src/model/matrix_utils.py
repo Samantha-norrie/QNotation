@@ -13,7 +13,7 @@ from PIL import Image
 import os
 import shutil
 import matplotlib.pyplot as plt
-plt.rcParams['text.usetex'] = True
+# plt.rcParams['text.usetex'] = True
 
 import numpy as np
 from pdf2image import convert_from_path
