@@ -7,7 +7,7 @@ from .widget_utils import *
 def Container(qc, qc_with_barriers):
     current_selected, set_current_selected = reacton.use_state(2)
     
-    with rv.Container() as main:
+    with rv.Container(layout={"height": "100%"}) as main:
         CircuitRow('circ', qc_with_barriers, current_selected, set_current_selected)
         DiracRow('dirac', qc_with_barriers, current_selected, set_current_selected)
     return main

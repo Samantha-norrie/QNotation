@@ -10,7 +10,6 @@ class QNotation:
     def view_notations(cls, qc: QuantumCircuit):
 
         # TODO fix local storage issue
-        # print(qc)
         qc_with_barriers = create_highlighted_circuit_figures(qc)
         create_dirac_state_images(qc, qc_with_barriers)
         # create_matrices_from_circuit(qc)

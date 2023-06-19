@@ -18,7 +18,7 @@ import sympy
 # Statevector functions
 def get_barrier_states(qc, num_qubits):
     states = []
-    
+    print('in here')
     for i in range(0, len(qc.data)):
         temp_circuit = QuantumCircuit(num_qubits)
         new_data = []
@@ -26,11 +26,14 @@ def get_barrier_states(qc, num_qubits):
             new_data.append(qc.data[j])
         temp_circuit.data = new_data
         states.append(Statevector(temp_circuit).draw(output='latex_source'))
+    states.append(Statevector(qc).draw(output='latex_source'))
+    print('state length', len(states))
     return states
 
 def compile_latex_src_dirac_states(qc, barrier_states):
     latex_src_dirac_states = []
     current_barrier_state_index = 0
+    print('barrier states', barrier_states)
 
     for i in range(0, len(qc)):
         # print("NAME",qc.data[i].operation.name)
@@ -59,6 +62,6 @@ def create_dirac_state_images(qc_orig, qc_barriers):
     for i in range(0, len(latex_src_dirac_states)):
         # print(latex_src_dirac_states[i])
         fig, ax = plt.subplots()
-        ax.text(0.5, 0.5, latex_src_dirac_states[i], fontsize=14, ha='center', va='center', transform=ax.transAxes)
+        ax.text(0.5, 0.5, latex_src_dirac_states[i], fontsize=80, ha='center', va='center', transform=ax.transAxes)
         ax.axis('off')
         plt.savefig(path_dirac + '/' + str(i)+'.png', dpi=300, bbox_inches='tight')
