@@ -1,6 +1,9 @@
 import reacton
 import reacton.ipyvuetify as rv
 import reacton.ipywidgets as w
+from PIL import Image
+
+BASE_HEIGHT = 100
 
 @reacton.component
 def ClickableImage(directory, image_number, current_selected, set_current_selected):
@@ -9,7 +12,16 @@ def ClickableImage(directory, image_number, current_selected, set_current_select
         
         set_current_selected(image_number)
 
-    image = rv.Img(src=f"""./{directory}/{str(image_number)}/selected.png""" if current_selected else f"""./circ/{str(image_number)}/not_selected.png""", max_height="150px", max_width="100px")
+    selected_image_src = f"""./{directory}/{str(image_number)}/selected.png"""
+    not_selected_image_src = f"""./{directory}/{str(image_number)}/not_selected.png"""
+
+    im = Image.open(selected_image_src)
+    width, height = im.size
+
+    hpercent = (BASE_HEIGHT/width)
+    wsize = int(height*float(hpercent))
+
+    image = rv.Img(src= selected_image_src if current_selected else not_selected_image_src, max_height=BASE_HEIGHT, max_width=wsize)
     rv.use_event(image, 'click', change_status)
     
     return image
@@ -28,9 +40,12 @@ def CircuitRow(directory, qc, current_selected, set_current_selected):
     return main
 
 @reacton.component
-def DiracRow(directory, qc, current_selected, set_current_selected):
+def DiracRow(state_directory, equation_directory, qc, current_selected, set_current_selected):
     print('in dirac row')
     with rv.Row(style="height 50px") as main:
         print('creating image')
-        NonClickableImage(directory, current_selected)
+        for i in range(0, len(qc.data)):
+            ClickableImage(equation_directory, i, True if i == current_selected else False, set_current_selected)
+        NonClickableImage(state_directory, current_selected)
+
     return main

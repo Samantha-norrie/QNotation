@@ -9,5 +9,5 @@ def Container(qc, qc_with_barriers):
     
     with rv.Container(layout={"height": "100%"}) as main:
         CircuitRow('circ', qc_with_barriers, current_selected, set_current_selected)
-        DiracRow('dirac', qc_with_barriers, current_selected, set_current_selected)
+        DiracRow('dirac','dirac_equations', qc_with_barriers, current_selected, set_current_selected)
     return main

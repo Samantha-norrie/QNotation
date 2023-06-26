@@ -116,23 +116,16 @@ def create_dirac_equation_images(qc):
 
             # Add identity matrices
             gate_formatted_latex_src = add_identity_matrices_to_latex_gate(data[i].operation.name, get_index_list_from_qubits(data[i].qubits), qc.num_qubits)
-            # latex_src_list.append(gate_formatted_latex_src)
-            # for i in range(0, len(latex_src_list)):
-            #     fig, ax = plt.subplots()
-            #     ax.text(0.5, 0.5, latex_src_list[i], fontsize=80, ha='center', va='center', transform=ax.transAxes)
-            #     # ax.set_col
-            #     ax.axis('off')
-            #     plt.savefig(path_dirac + '/' + str(i)+'.png', dpi=300, bbox_inches='tight')
+
+            fig, ax = plt.subplots()
+            ax.text(0.5, 0.5, gate_formatted_latex_src, fontsize=80, ha='center', va='center', transform=ax.transAxes)
+            ax.axis('off')
+            plt.savefig(instance_path + '/not_selected.png', dpi=300, bbox_inches='tight')
+
             fig, ax = plt.subplots()
             ax.text(0.5, 0.5, gate_formatted_latex_src, fontsize=80, ha='center', va='center', transform=ax.transAxes, color='pink')
             ax.axis('off')
-            plt.savefig(instance_path + '/not_selected.png', dpi=300, bbox_inches='tight')
-            # print(ax.properties)
-            # ax.set_color('pink')
-            fig, ax = plt.subplots()
-            ax.text(0.5, 0.5, gate_formatted_latex_src, fontsize=80, ha='center', va='center', transform=ax.transAxes, color='pink')
-            ax.axis('off')
-            plt.savefig(instance_path + '/not_selected.png', dpi=300, bbox_inches='tight')
+            plt.savefig(instance_path + '/selected.png', dpi=300, bbox_inches='tight')
 
     # Generate images
 
