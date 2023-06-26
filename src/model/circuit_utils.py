@@ -9,6 +9,8 @@ import shutil
 import matplotlib.pyplot as plt
 import numpy as np
 
+BASE_HEIGHT = 100
+
 # Circuit functions
 
 def add_barriers(qc):
@@ -54,7 +56,7 @@ def gates_to_figures(qc, directory):
     num_qubits = qc.data[0].operation.num_qubits
     
     # TODO fix regex
-    style_settings = {'displaycolor': {r'*': ('#c12f98', '#FFFFFF')},
+    style_settings = {'displaycolor': {'CNOT': ('#c12f98', '#FFFFFF')},
                       'gatefacecolor': '#f05400',
                     'barrierfacecolor': '#f05400'}
     for i in range(0, len(qc.data)):
@@ -74,6 +76,12 @@ def gates_to_figures(qc, directory):
         
         not_selected_image = crop_image(Image.open(buf_not_selected), right_crop_only=(i == 0 if True else False))
         selected_image = crop_image(Image.open(buf_selected), right_crop_only=(i == 0 if True else False))
+
+        hpercent = (BASE_HEIGHT/float(selected_image.size[1]))
+        wsize = int((float(selected_image.size[0])*float(hpercent)))
+
+        not_selected_image.resize((wsize, BASE_HEIGHT))
+        selected_image.resize((wsize, BASE_HEIGHT))
 
         not_selected_image.save(path + '/' + 'not_selected.png')
         selected_image.save(path + '/' + 'selected.png')
