@@ -32,7 +32,6 @@ def add_barriers(qc):
 
 def format_figure(mpl_obj, crop=True):
     img_bio = BytesIO()
-    print(img_bio.read())
     mpl_obj.savefig(img_bio, format="png", bbox_inches="tight")
     mpl_obj.clf()
 
@@ -56,7 +55,7 @@ def gates_to_figures(qc, directory):
     num_qubits = qc.data[0].operation.num_qubits
     
     # TODO fix regex
-    style_settings = {'displaycolor': {'CNOT': ('#c12f98', '#FFFFFF')},
+    style_settings = {'displaycolor': {'x': ('#c12f98', '#FFFFFF')},
                       'gatefacecolor': '#f05400',
                     'barrierfacecolor': '#f05400'}
     for i in range(0, len(qc.data)):
@@ -80,8 +79,8 @@ def gates_to_figures(qc, directory):
         hpercent = (BASE_HEIGHT/float(selected_image.size[1]))
         wsize = int((float(selected_image.size[0])*float(hpercent)))
 
-        not_selected_image.resize((wsize, BASE_HEIGHT))
-        selected_image.resize((wsize, BASE_HEIGHT))
+        # not_selected_image.resize((wsize, BASE_HEIGHT))
+        # selected_image.resize((wsize, BASE_HEIGHT))
 
         not_selected_image.save(path + '/' + 'not_selected.png')
         selected_image.save(path + '/' + 'selected.png')
@@ -90,7 +89,7 @@ def gates_to_figures(qc, directory):
     return images       
         
 def create_highlighted_circuit_figures(qc: QuantumCircuit):
-    # print(qc)
+
     parent_directory = os.getcwd()
     directory_circ = "circ"
     path_circ = os.path.join(parent_directory, directory_circ)

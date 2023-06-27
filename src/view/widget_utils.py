@@ -21,7 +21,7 @@ def ClickableImage(directory, image_number, current_selected, set_current_select
     hpercent = (BASE_HEIGHT/width)
     wsize = int(height*float(hpercent))
 
-    image = rv.Img(src= selected_image_src if current_selected else not_selected_image_src, max_height=BASE_HEIGHT, max_width=wsize)
+    image = rv.Img(src= selected_image_src if current_selected else not_selected_image_src, max_width=wsize)
     rv.use_event(image, 'click', change_status)
     
     return image
@@ -41,9 +41,8 @@ def CircuitRow(directory, qc, current_selected, set_current_selected):
 
 @reacton.component
 def DiracRow(state_directory, equation_directory, qc, current_selected, set_current_selected):
-    print('in dirac row')
+
     with rv.Row(style="height 50px") as main:
-        print('creating image')
         for i in range(0, len(qc.data)):
             ClickableImage(equation_directory, i, True if i == current_selected else False, set_current_selected)
         NonClickableImage(state_directory, current_selected)
