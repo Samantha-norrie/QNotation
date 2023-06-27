@@ -33,7 +33,7 @@ def NonClickableImage(directory, image_number):
 
 @reacton.component
 def CircuitRow(directory, qc, current_selected, set_current_selected):
-    with rv.Row() as main:
+    with rv.Html(tag='div', class_='d-flex') as main:
         for i in range(0, len(qc.data)):
             ClickableImage(directory, i, True if i == current_selected else False, set_current_selected)
     
@@ -42,7 +42,7 @@ def CircuitRow(directory, qc, current_selected, set_current_selected):
 @reacton.component
 def DiracRow(state_directory, equation_directory, qc, current_selected, set_current_selected):
 
-    with rv.Row(style="height 50px") as main:
+    with rv.Html(tag='div', class_='d-flex') as main:
         for i in range(0, len(qc.data)):
             ClickableImage(equation_directory, i, True if i == current_selected else False, set_current_selected)
         NonClickableImage(state_directory, current_selected)
