@@ -13,6 +13,7 @@ class QNotation:
         qc_with_barriers = create_highlighted_circuit_figures(qc)
         create_dirac_state_images(qc, qc_with_barriers)
         create_dirac_equation_images(qc_with_barriers)
+        create_matrix_equation_images(qc_with_barriers)
         # create_matrices_from_circuit(qc)
         cls.view = Container(qc, qc_with_barriers)
         display(cls.view)

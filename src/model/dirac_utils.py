@@ -9,21 +9,7 @@ import matplotlib.pyplot as plt
 
 import numpy as np
 import sympy
-
-def add_identity_matrices_to_latex_gate(gate_in_latex, qubits_used_by_gate, num_qubits_in_circuit):
-    gate_added = False
-    latex_string = '$'
-    for i in range(0, num_qubits_in_circuit):
-        if qubits_used_by_gate.count(i) and not gate_added:
-            latex_string = latex_string + gate_in_latex
-        elif not qubits_used_by_gate.count(i):
-            latex_string = latex_string + 'I'
-        
-        if i < num_qubits_in_circuit-1:
-            latex_string = latex_string + ' \otimes '
-    latex_string = latex_string + '$'
-
-    return latex_string
+from model.general_utils import *
 
 def get_barrier_states(qc, num_qubits):
     states = []
@@ -72,12 +58,6 @@ def create_dirac_state_images(qc_orig, qc_barriers):
         plt.savefig(path_dirac + '/' + str(i)+'.png', dpi=300, bbox_inches='tight')
         plt.close()
 
-def get_index_list_from_qubits(qubit_list):
-    indices = []
-    for i in range(0, len(qubit_list)):
-        indices.append(qubit_list[i].index)
-    return indices
-
 def create_dirac_equation_images(qc):
 
     parent_directory = os.getcwd()
@@ -112,7 +92,7 @@ def create_dirac_equation_images(qc):
         else:
 
             # Add identity matrices
-            gate_formatted_latex_src = add_identity_matrices_to_latex_gate(data[i].operation.name, get_index_list_from_qubits(data[i].qubits), qc.num_qubits)
+            gate_formatted_latex_src = add_identity_matrices_to_latex_gate(data[i].operation.name, get_index_list_from_qubits(data[i].qubits), qc.num_qubits, dirac=True)
 
             fig, ax = plt.subplots()
             ax.text(0.5, 0.5, gate_formatted_latex_src, fontsize=80, ha='center', va='center', transform=ax.transAxes)

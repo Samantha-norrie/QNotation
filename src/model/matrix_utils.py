@@ -13,6 +13,7 @@ from PIL import Image
 import os
 import shutil
 import matplotlib.pyplot as plt
+from model.general_utils import *
 # plt.rcParams['text.usetex'] = True
 
 import numpy as np
@@ -27,42 +28,100 @@ import sympy
 
 IDENTITY_MATRIX = Matrix(np.matrix([[1,0],[0,1]]), mtype='b')
 
+def convert_operator_to_latex_src(operator):
+    # Convert the NumPy array to a string representation
+    arr_str = np.array2string(operator.data, separator=' ')
+
+    # Remove the opening and closing brackets
+    arr_str = arr_str.strip('[]')
+
+    # Replace spaces with LaTeX column separators (&)
+    arr_str = arr_str.replace(' ', ' & ')
+
+    # Add LaTeX array delimiters and line breaks
+    latex_code = '\\begin{bmatrix}\n' + arr_str + ' \\\\\n\\end{bmatrix}'
+
+    return latex_code
+
 def convert_operator_to_latex_matrix(operator):
     data = operator.data
     numpy_matrix = np.matrix(data)
     return Matrix(numpy_matrix, mtype='b')
 
-def get_latex_matrices(qc):
-    matrices = []
+def get_latex_src(qc):
+    latex_src_list = []
     for i in range(0, len(qc.data)):
         if qc.data[i].operation.name != 'barrier':
-            matrices.append(convert_operator_to_latex_matrix(Operator(qc.data[i].operation)))
-    return matrices
+            latex_src_list.append(convert_operator_to_latex_matrix(Operator(qc.data[i].operation)))
+        else: 
+            latex_src_list.append('?')
 
-def create_matrices_from_circuit(qc):
+    return latex_src_list
+
+def create_matrix_equation_images(qc):
     parent_directory = os.getcwd()
     directory_matrix = "matrix"
     path_matrix  = os.path.join(parent_directory, directory_matrix )
     if os.path.exists(path_matrix):
         shutil.rmtree(path_matrix )
-    os.mkdir(path_matrix ) 
+    os.mkdir(path_matrix)
 
-    matrices = get_latex_matrices(qc)
-    for i in range(0, len(matrices)):
-        doc = Document()
-        doc.documentclass = Command(
-        'documentclass',
-        options=['12pt', 'landscape'],
-        arguments=['standalone'],
-    )
-        math = Math(data=[IDENTITY_MATRIX, 'x', matrices[i]])
-        doc.append(math)
+    data = qc.data
 
-        # TODO fix local storage issue
-        doc.generate_pdf(str(i))
-        img = convert_from_path(str(i)+'.pdf')
-        img.save('./'+ directory_matrix+ '/'+str(i) +'.png', 'PNG')
-        os.remove(str(i) +'.pdf')
+    for i in range(0, len(data)):
+
+        # TODO rename... refactor...
+        instance_path = os.path.join(path_matrix, str(i))
+        os.mkdir(instance_path) 
+
+        # For states
+        if data[i].operation.name == 'barrier':
+            fig, ax = plt.subplots()
+            ax.text(0.5, 0.5, '$ ? $', fontsize=80, ha='center', va='center', transform=ax.transAxes)
+            ax.axis('off')
+            plt.savefig(instance_path + '/not_selected.png', dpi=300, bbox_inches='tight')
+            plt.close()
+
+            fig, ax = plt.subplots()
+            ax.text(0.5, 0.5, '$ ? $', fontsize=80, ha='center', va='center', transform=ax.transAxes, color='pink')
+            ax.axis('off')
+            plt.savefig(instance_path + '/selected.png', dpi=300, bbox_inches='tight')
+            plt.close()
+
+        # For gates
+        else:
+
+            # Add identity matrices
+            gate_formatted_latex_src = add_identity_matrices_to_latex_gate(data[i].operation.name, get_index_list_from_qubits(data[i].qubits), qc.num_qubits)
+
+            fig, ax = plt.subplots()
+            ax.text(0.5, 0.5, gate_formatted_latex_src, fontsize=80, ha='center', va='center', transform=ax.transAxes)
+            ax.axis('off')
+            plt.savefig(instance_path + '/not_selected.png', dpi=300, bbox_inches='tight')
+            plt.close()
+
+            fig, ax = plt.subplots()
+            ax.text(0.5, 0.5, gate_formatted_latex_src, fontsize=80, ha='center', va='center', transform=ax.transAxes, color='pink')
+            ax.axis('off')
+            plt.savefig(instance_path + '/selected.png', dpi=300, bbox_inches='tight')
+            plt.close()
+
+
+    # for i in range(0, len(matrices)):
+    #     doc = Document()
+    #     doc.documentclass = Command(
+    #     'documentclass',
+    #     options=['12pt', 'landscape'],
+    #     arguments=['standalone'],
+    # )
+    #     math = Math(data=[IDENTITY_MATRIX, 'x', matrices[i]])
+    #     doc.append(math)
+
+    #     # TODO fix local storage issue
+    #     doc.generate_pdf(str(i))
+    #     img = convert_from_path(str(i)+'.pdf')
+    #     img.save('./'+ directory_matrix+ '/'+str(i) +'.png', 'PNG')
+    #     os.remove(str(i) +'.pdf')
 
 
 
