@@ -16,19 +16,25 @@ def get_index_list_from_qubits(qubit_list):
     return indices
 
 def add_identity_matrices_to_latex_gate(gate_in_latex, qubits_used_by_gate, num_qubits_in_circuit, dirac=False):
+    print("LT gate", gate_in_latex, "qubits used by gate", qubits_used_by_gate, "num qubits", num_qubits_in_circuit)
     gate_added = False
     latex_string = '$'
 
     for i in range(0, num_qubits_in_circuit):
         if qubits_used_by_gate.count(i) and not gate_added:
+            print("true")
             latex_string = latex_string + gate_in_latex
+
+            gate_added = True
         elif not qubits_used_by_gate.count(i):
             if dirac:
                 latex_string = latex_string + 'I'
             else:
                 latex_string = latex_string + '\\begin{bmatrix}\n 1 & 0 \\ 0 & 1 \\\\\n\\end{bmatrix}'
+
+            
         
-        if i < num_qubits_in_circuit-1:
+        if i < num_qubits_in_circuit-1 and not qubits_used_by_gate.count(num_qubits_in_circuit-1):
             latex_string = latex_string + ' \otimes '
     latex_string = latex_string + '$'
 
