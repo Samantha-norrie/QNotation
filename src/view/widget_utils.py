@@ -43,7 +43,7 @@ def CircuitRow(directory, qc, current_selected, set_current_selected):
 def DiracRow(state_directory, equation_directory, qc, current_selected, set_current_selected):
 
     with rv.Html(tag='div', class_='d-flex justify-start') as main:
-        for i in range(0, len(qc.data)):
+        for i in range(len(qc.data)-1, -1, -1):
             ClickableImage(equation_directory, i, True if i == current_selected else False, set_current_selected)
         NonClickableImage(state_directory, current_selected)
 
