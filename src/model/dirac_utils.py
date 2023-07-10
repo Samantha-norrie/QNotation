@@ -48,7 +48,9 @@ def create_dirac_state_images(qc_orig, qc_barriers):
     if os.path.exists(path_dirac):
         shutil.rmtree(path_dirac)
     os.mkdir(path_dirac) 
-    barrier_latex_states = get_barrier_states(qc_orig, 3)
+
+    #TODO second arg math?
+    barrier_latex_states = get_barrier_states(qc_orig, (len(qc_barriers.data[0].qubits)+len(qc_barriers.data[0].clbits)))
     latex_src_dirac_states = compile_latex_src_dirac_states(qc_barriers, barrier_latex_states)
     
     for i in range(0, len(latex_src_dirac_states)):
