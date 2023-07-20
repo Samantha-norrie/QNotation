@@ -12,7 +12,7 @@ to read and use all of its notations.
 
 ### How to Use QNotation
 
-## How to use (Absolute Beginner's Version)
+## How to Use (Absolute Beginner's Version)
 
 If you have never written a line of code before, this section is for you!
 
