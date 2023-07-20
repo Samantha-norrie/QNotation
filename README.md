@@ -2,7 +2,7 @@
 
 ## Introduction
 Welcome to QNotation! QNotation is a visual and interactive tool designed to support the learning of circuit, Dirac, and matrix notation
-in Quantum Computing. The aforementioned notations are the three main notations used in Quantum Computing. Why is it important to learn
+within the context of Quantum Computing. The aforementioned notations are the three main notations used in Quantum Computing. Why is it important to learn
 these notations? As stated by Richard Feynman, in order for one to truly comprehend their field and all of its nuances, they must be able
 to read and use all of its notations!
 
