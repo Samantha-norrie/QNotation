@@ -49,5 +49,5 @@ qc.h(0)
 qc.x(1)
 
 # Step 3: Run QNotation
-QNotation.view\_notations(qc)
+QNotation.view_notations(qc)
 ```
