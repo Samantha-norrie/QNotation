@@ -8,11 +8,11 @@ to read and use all of its notations!
 
 ## How to Use (Programmer's Version)
 
-### How to Install QNotation (Coming soon!)
+### Installing QNotation *(Coming Soon!)*
 
-QNotation is currently still being built! Once the first version of the tool is released, users will be able to use [pip](https://pypi.org/project/pip/).
+QNotation is currently still being built! Once the first version of the tool is released, users will be able to use pip to install the tool.
 
-### How to Use QNotation
+### Using QNotation
 
 ## How to Use (Absolute Beginner's Version)
 
@@ -32,7 +32,7 @@ tools for Python. [Here is a great tutorial on how to use Jupyter Notebook](http
 Qiskit is one of the most popular Quantum Computing libraries! [This tutorial explains how to download it](https://qiskit.org/documentation/getting_started.html).
 The tutorial assumes that the user has pip installed. Pip can be installed by following [these instructions](https://pip.pypa.io/en/stable/installation/).
 
-### Installing QNotation
+### Installing QNotation *(Coming Soon!)*
 
 QNotation is currently still being built! Once the first version of the tool is released, users will be able to use pip to download the tool.
 
