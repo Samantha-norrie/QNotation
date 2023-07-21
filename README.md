@@ -37,3 +37,17 @@ The tutorial assumes that the user has pip installed. Pip can be installed by fo
 QNotation is currently still being built! Once the first version of the tool is released, users will be able to use pip to download the tool.
 
 ### Creating Your First Quantum Circuit for QNotation
+
+```python
+# Step 1: Import the required packages
+from qiskit import QuantumCircuit
+from qnotation import QNotation
+
+# Step 2: Create your QuantumCircuit object (https://qiskit.org/documentation/apidoc/circuit.html)
+qc = QuantumCircuit(3)
+qc.h(0)
+qc.x(1)
+
+# Step 3: Run QNotation
+QNotation.view\_notations(qc)
+```
