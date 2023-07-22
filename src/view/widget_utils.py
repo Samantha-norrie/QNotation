@@ -6,6 +6,12 @@ from PIL import Image
 BASE_HEIGHT = 100
 
 @reacton.component
+def Title(title_name):
+     with rv.Html(tag='div', class_='d-flex',style_='height: 100px;') as main:
+        rv.TextField(label=title_name)
+        return main
+
+@reacton.component
 def ClickableImage(directory, image_number, current_selected, set_current_selected):
     
     def change_status(*ignore_args):
@@ -21,7 +27,8 @@ def ClickableImage(directory, image_number, current_selected, set_current_select
     hpercent = (BASE_HEIGHT/width)
     wsize = int(height*float(hpercent))
 
-    image = rv.Img(src= selected_image_src if current_selected else not_selected_image_src, max_width="100px" if directory == 'dirac_equations' else None)
+    # image = rv.Img(src= selected_image_src if current_selected else not_selected_image_src,style_='height: 100px;', max_width="100px" if directory == 'dirac_equations' else None)
+    image = rv.Html(tag='img', attributes={"src": {selected_image_src if current_selected else not_selected_image_src}}, style_='height: 100px;')
     rv.use_event(image, 'click', change_status)
     
     return image
@@ -33,7 +40,7 @@ def NonClickableImage(directory, image_number):
 
 @reacton.component
 def CircuitRow(directory, qc, current_selected, set_current_selected):
-    with rv.Html(tag='div', class_='d-flex', style_='height 100px') as main:
+    with rv.Html(tag='div', class_='d-flex',style_='height: 100px;') as main:
         for i in range(0, len(qc.data)):
             ClickableImage(directory, i, True if i == current_selected else False, set_current_selected)
     
