@@ -8,6 +8,7 @@ import os
 import shutil
 import matplotlib.pyplot as plt
 import numpy as np
+from model.general_utils import *
 
 BASE_HEIGHT = 100
 
@@ -55,9 +56,9 @@ def gates_to_figures(qc, directory):
     num_qubits = qc.data[0].operation.num_qubits
     
     # TODO fix regex
-    style_settings = {'displaycolor': {'x': ('#f05400', '#FFFFFF')},
-                      'gatefacecolor': '#f05400',
-                    'barrierfacecolor': '#f05400'}
+    style_settings = {'displaycolor': {'x': (SELECTED_COLOUR, '#FFFFFF')},
+                      'gatefacecolor': SELECTED_COLOUR,
+                    'barrierfacecolor': SELECTED_COLOUR}
     for i in range(0, len(qc.data)):
         image_pair = []
         path = os.path.join(directory, str(i))

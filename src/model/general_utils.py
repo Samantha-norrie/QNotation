@@ -9,6 +9,7 @@ import shutil
 import matplotlib.pyplot as plt
 import numpy as np
 
+SELECTED_COLOUR = '#f05400'
 def get_index_list_from_qubits(qubit_list):
     indices = []
     for i in range(0, len(qubit_list)):

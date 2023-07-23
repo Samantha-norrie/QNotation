@@ -35,7 +35,8 @@ def ClickableImage(directory, image_number, current_selected, set_current_select
 
 @reacton.component
 def NonClickableImage(directory, image_number):
-    image = rv.Img(src=f"""./{directory}/{str(image_number)}.png""", max_height="200px", max_width="200px")
+    image = rv.Html(tag='img', attributes={"src": f"""./{directory}/{str(image_number)}.png"""}, style_='height: 100px;')
+    # image = rv.Img(src=f"""./{directory}/{str(image_number)}.png""", max_height="200px", max_width="200px")
     return image
 
 @reacton.component

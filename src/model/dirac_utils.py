@@ -55,7 +55,7 @@ def create_dirac_state_images(qc_orig, qc_barriers):
     
     for i in range(0, len(latex_src_dirac_states)):
         fig, ax = plt.subplots()
-        ax.text(0.5, 0.5, latex_src_dirac_states[i], fontsize=80, ha='center', va='center', transform=ax.transAxes, color='pink')
+        ax.text(0.5, 0.5, latex_src_dirac_states[i], fontsize=80, ha='center', va='center', transform=ax.transAxes, color=SELECTED_COLOUR)
         ax.axis('off')
         plt.savefig(path_dirac + '/' + str(i)+'.png', dpi=300, bbox_inches='tight')
         plt.close()
@@ -85,7 +85,7 @@ def create_dirac_equation_images(qc):
             plt.close()
 
             fig, ax = plt.subplots()
-            ax.text(0.5, 0.5, '$ ? $', fontsize=80, ha='center', va='center', transform=ax.transAxes, color='pink')
+            ax.text(0.5, 0.5, '$ ? $', fontsize=80, ha='center', va='center', transform=ax.transAxes, color=SELECTED_COLOUR)
             ax.axis('off')
             plt.savefig(instance_path + '/selected.png', dpi=300, bbox_inches='tight')
             plt.close()
@@ -103,7 +103,7 @@ def create_dirac_equation_images(qc):
             plt.close()
 
             fig, ax = plt.subplots()
-            ax.text(0.5, 0.5, gate_formatted_latex_src, fontsize=80, ha='center', va='center', transform=ax.transAxes, color='pink')
+            ax.text(0.5, 0.5, gate_formatted_latex_src, fontsize=80, ha='center', va='center', transform=ax.transAxes, color=SELECTED_COLOUR)
             ax.axis('off')
             plt.savefig(instance_path + '/selected.png', dpi=300, bbox_inches='tight')
             plt.close()
