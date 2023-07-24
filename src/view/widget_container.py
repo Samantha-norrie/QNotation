@@ -9,7 +9,7 @@ def Container(qc, qc_with_barriers):
     
     with rv.Html(tag='div') as main:
         Title('Circuit')
-        CircuitRow('circ', qc_with_barriers, current_selected, set_current_selected)
+        CircuitRows('circ', qc_with_barriers, current_selected, set_current_selected)
         Title('Dirac')
         DiracRow('dirac','dirac_equations', qc_with_barriers, current_selected, set_current_selected)
         Title('Matrix')

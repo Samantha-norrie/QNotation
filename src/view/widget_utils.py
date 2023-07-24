@@ -1,9 +1,11 @@
 import reacton
 import reacton.ipyvuetify as rv
 import reacton.ipywidgets as w
+import math
 from PIL import Image
 
 BASE_HEIGHT = 100
+CIRCUIT_OPS_PER_ROW = 20.0
 
 @reacton.component
 def Title(title_name):
@@ -40,19 +42,34 @@ def NonClickableImage(directory, image_number):
     return image
 
 @reacton.component
-def CircuitRow(directory, qc, current_selected, set_current_selected):
+def CircuitRow(directory, qc, current_selected, set_current_selected, row_lower_bound, row_upper_bound):
+
     with rv.Html(tag='div', class_='d-flex',style_='height: 100px;') as main:
-        for i in range(0, len(qc.data)):
+        for i in range(row_lower_bound, row_upper_bound):
             ClickableImage(directory, i, True if i == current_selected else False, set_current_selected)
     
     return main
+@reacton.component
+def CircuitRows(directory, qc, current_selected, set_current_selected):
+    iterations = math.ceil(len(qc.data)/CIRCUIT_OPS_PER_ROW)
+
+    lower_bound = 0
+    with rv.Html(tag='div', class_='d-flex flex-column') as main:
+        for i in range(0, iterations):
+            if i == iterations-1:
+                CircuitRow(directory, qc, current_selected, set_current_selected, int(lower_bound), int(lower_bound+len(qc.data)%CIRCUIT_OPS_PER_ROW))
+            else:
+                CircuitRow(directory, qc, current_selected, set_current_selected, int(lower_bound), int(lower_bound+CIRCUIT_OPS_PER_ROW))
+                lower_bound = lower_bound+CIRCUIT_OPS_PER_ROW
+    return main
 
 @reacton.component
-def DiracEquationColumn(equation_directory, qc, current_selected, set_current_selected):
+def DiracEquationColumn(state_directory, equation_directory, qc, current_selected, set_current_selected):
     with rv.Col() as main : 
         with rv.Html(tag='div', class_='d-flex justify-start') as main_row:
             for i in range(len(qc.data)-1, -1, -1):
                 ClickableImage(equation_directory, i, True if i == current_selected else False, set_current_selected)
+            NonClickableImage(state_directory, 0)
     return main
 
 def DiracStateColumn(state_directory, current_selected):
@@ -65,7 +82,7 @@ def DiracStateColumn(state_directory, current_selected):
 def DiracRow(state_directory, equation_directory, qc, current_selected, set_current_selected):
 
     with rv.Html(tag='div', class_='d-flex justify-start') as main:
-        DiracEquationColumn(equation_directory, qc, current_selected, set_current_selected)
+        DiracEquationColumn(state_directory, equation_directory, qc, current_selected, set_current_selected)
         DiracStateColumn(state_directory, current_selected)
 
     return main
