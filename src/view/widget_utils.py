@@ -14,31 +14,23 @@ def Title(title_name):
         return main
 
 @reacton.component
-def ClickableImage(directory, image_number, current_selected, set_current_selected):
+def ClickableImage(directory, image_number, current_selected, set_current_selected, svg=False):
     
     def change_status(*ignore_args):
         
         set_current_selected(image_number)
 
-    selected_image_src = f"""./{directory}/{str(image_number)}/selected.png"""
-    not_selected_image_src = f"""./{directory}/{str(image_number)}/not_selected.png"""
+    selected_image_src = f"""./{directory}/{str(image_number)}/selected{".png" if not svg else ".svg"}"""
+    not_selected_image_src = f"""./{directory}/{str(image_number)}/not_selected{".png" if not svg else ".svg"}"""
 
-    im = Image.open(selected_image_src)
-    width, height = im.size
-
-    hpercent = (BASE_HEIGHT/width)
-    wsize = int(height*float(hpercent))
-
-    # image = rv.Img(src= selected_image_src if current_selected else not_selected_image_src,style_='height: 100px;', max_width="100px" if directory == 'dirac_equations' else None)
     image = rv.Html(tag='img', attributes={"src": {selected_image_src if current_selected else not_selected_image_src}}, style_='height: 100px;')
     rv.use_event(image, 'click', change_status)
     
     return image
 
 @reacton.component
-def NonClickableImage(directory, image_number):
-    image = rv.Html(tag='img', attributes={"src": f"""./{directory}/{str(image_number)}.png"""}, style_='height: 100px;')
-    # image = rv.Img(src=f"""./{directory}/{str(image_number)}.png""", max_height="200px", max_width="200px")
+def NonClickableImage(directory, image_number, svg=False):
+    image = rv.Html(tag='img', attributes={"src": f"""./{directory}/{str(image_number)}{".png" if not svg else ".svg"}"""}, style_='height: 100px;')
     return image
 
 @reacton.component
@@ -68,14 +60,14 @@ def DiracEquationColumn(state_directory, equation_directory, qc, current_selecte
     with rv.Col() as main : 
         with rv.Html(tag='div', class_='d-flex justify-start') as main_row:
             for i in range(len(qc.data)-1, -1, -1):
-                ClickableImage(equation_directory, i, True if i == current_selected else False, set_current_selected)
-            NonClickableImage(state_directory, 0)
+                ClickableImage(equation_directory, i, True if i == current_selected else False, set_current_selected, True)
+            NonClickableImage(state_directory, 0, True)
     return main
 
 def DiracStateColumn(state_directory, current_selected):
     with rv.Col() as main : 
         with rv.Html(tag='div', class_='d-flex justify-end') as main_row:
-            NonClickableImage(state_directory, current_selected)
+            NonClickableImage(state_directory, current_selected, True)
     return main
 
 @reacton.component
