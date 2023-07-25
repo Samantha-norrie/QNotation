@@ -11,6 +11,6 @@ def Container(qc, qc_with_barriers):
         Title('Circuit')
         CircuitRows('circ', qc_with_barriers, current_selected, set_current_selected)
         Title('Dirac')
-        DiracRow('dirac','dirac_equations', qc_with_barriers, current_selected, set_current_selected)
+        DiracDisplay('dirac','dirac_equations', qc_with_barriers, current_selected, set_current_selected)
         Title('Matrix')
     return main
