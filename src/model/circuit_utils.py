@@ -56,7 +56,7 @@ def gates_to_figures(qc, directory):
     num_qubits = qc.data[0].operation.num_qubits
     
     # TODO fix regex
-    style_settings = {'displaycolor': {'x': (SELECTED_COLOUR, '#FFFFFF')},
+    style_settings = {'displaycolor': {'x': (SELECTED_COLOUR, '#FFFFFF'), 'h': (SELECTED_COLOUR, '#FFFFFF'), 'cx': (SELECTED_COLOUR, '#FFFFFF')},
                       'gatefacecolor': SELECTED_COLOUR,
                     'barrierfacecolor': SELECTED_COLOUR}
     for i in range(0, len(qc.data)):
