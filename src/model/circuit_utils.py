@@ -11,6 +11,8 @@ import numpy as np
 from model.general_utils import *
 
 BASE_HEIGHT = 100
+
+# TODO fix regex
 STYLE_SETTINGS = {'displaycolor': {'x': (SELECTED_COLOUR, '#FFFFFF'), 'h': (SELECTED_COLOUR, '#FFFFFF'), 'cx': (SELECTED_COLOUR, '#FFFFFF')},
                     'gatefacecolor': SELECTED_COLOUR,
                 'barrierfacecolor': SELECTED_COLOUR}
@@ -82,9 +84,11 @@ def gates_to_figures(qc, directory):
     # Can be done as first gate will always be a barrier
     num_qubits = qc.data[0].operation.num_qubits
     
-    # TODO fix regex
     for i in range(0, len(qc.data)):
-        image_pair = []
+
+        if i%2==0:
+            continue
+
         path = os.path.join(directory, str(i))
         os.mkdir(path) 
         qc_gate_not_selected = QuantumCircuit(num_qubits)
@@ -100,12 +104,6 @@ def gates_to_figures(qc, directory):
         
         not_selected_image = crop_image(Image.open(buf_not_selected), right_crop_only=(i == 0 if True else False))
         selected_image = crop_image(Image.open(buf_selected), right_crop_only=(i == 0 if True else False))
-
-        hpercent = (BASE_HEIGHT/float(selected_image.size[1]))
-        wsize = int((float(selected_image.size[0])*float(hpercent)))
-
-        # not_selected_image.resize((wsize, BASE_HEIGHT))
-        # selected_image.resize((wsize, BASE_HEIGHT))
 
         not_selected_image.save(path + '/' + 'not_selected.png')
         selected_image.save(path + '/' + 'selected.png')

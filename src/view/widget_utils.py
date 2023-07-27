@@ -10,6 +10,7 @@ DIRAC_OPS_PER_ROW = 10.0
 
 @reacton.component
 def Title(title_name):
+     
      with rv.Html(tag='div', class_='d-flex',style_='height: 100px;') as main:
         rv.TextField(label=title_name)
         return main
@@ -23,9 +24,12 @@ def ClickableImage(directory, image_number, current_selected, set_current_select
     selected_image_src = None
     not_selected_image_src = None
 
+    # Barrier
     if image_number%2==0:
         selected_image_src = f"""./{directory}/selected.png"""
         not_selected_image_src = f"""./{directory}/not_selected.png"""
+
+    # Gate
     else:
         selected_image_src = f"""./{directory}/{str(image_number)}/selected{".png" if not svg else ".svg"}"""
         not_selected_image_src = f"""./{directory}/{str(image_number)}/not_selected{".png" if not svg else ".svg"}"""
@@ -49,14 +53,14 @@ def CircuitRow(circ_directory, circ_barriers_directory, qc, current_selected, se
                 ClickableImage(circ_barriers_directory, i, True if i == current_selected else False, set_current_selected)
             else:
                 ClickableImage(circ_directory, i, True if i == current_selected else False, set_current_selected)
-    
     return main
 
 @reacton.component
 def CircuitRows(circ_directory, circ_barriers_directory, qc, current_selected, set_current_selected):
-    iterations = math.ceil(len(qc.data)/CIRCUIT_OPS_PER_ROW)
 
+    iterations = math.ceil(len(qc.data)/CIRCUIT_OPS_PER_ROW)
     lower_bound = 0
+
     with rv.Html(tag='div', class_='d-flex flex-column') as main:
         for i in range(0, iterations):
             if i == iterations-1:
@@ -68,8 +72,9 @@ def CircuitRows(circ_directory, circ_barriers_directory, qc, current_selected, s
 
 @reacton.component
 def DiracEquationColumn(state_directory, equation_directory, qc, current_selected, set_current_selected):
+
     with rv.Col() as main : 
-        with rv.Html(tag='div', class_='d-flex justify-start') as main_row:
+        with rv.Html(tag='div', class_='d-flex justify-start'):
             for i in range(len(qc.data)-1, -1, -1):
                 ClickableImage(equation_directory, i, True if i == current_selected else False, set_current_selected, True)
             NonClickableImage(state_directory, 0, True)
@@ -77,6 +82,7 @@ def DiracEquationColumn(state_directory, equation_directory, qc, current_selecte
 
 @reacton.component
 def DiracEquationRow(state_directory, equation_directory, barrier_directory, qc, current_selected, set_current_selected, row_lower_bound, row_upper_bound, include_equation_start=False):
+
     with rv.Html(tag='div', class_='d-flex justify-start',style_='height: 100px;') as main_row:
         for i in range(row_upper_bound-1, row_lower_bound-1, -1):
             # barrier
@@ -90,9 +96,10 @@ def DiracEquationRow(state_directory, equation_directory, barrier_directory, qc,
 
 @reacton.component
 def DiracEquationRows(state_directory, equation_directory, barrier_directory, qc, current_selected, set_current_selected):
-    iterations = math.ceil(len(qc.data)/DIRAC_OPS_PER_ROW)
 
+    iterations = math.ceil(len(qc.data)/DIRAC_OPS_PER_ROW)
     upper_bound = len(qc.data)
+
     with rv.Html(tag='div', class_='d-flex flex-column') as main:
         for i in range(0, iterations):
             if i == iterations-1:
@@ -104,6 +111,7 @@ def DiracEquationRows(state_directory, equation_directory, barrier_directory, qc
     return main
 
 def DiracStateColumn(state_directory, current_selected):
+
     with rv.Col() as main : 
         with rv.Html(tag='div', class_='d-flex justify-end') as main_row:
             NonClickableImage(state_directory, current_selected, True)
@@ -115,5 +123,4 @@ def DiracDisplay(state_directory, equation_directory, barrier_directory, qc, cur
     with rv.Html(tag='div', class_='d-flex justify-start') as main:
         DiracEquationRows(state_directory,equation_directory, barrier_directory, qc, current_selected, set_current_selected)
         DiracStateColumn(state_directory, current_selected)
-
     return main
