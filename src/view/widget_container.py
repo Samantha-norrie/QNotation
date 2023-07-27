@@ -9,8 +9,8 @@ def Container(qc, qc_with_barriers):
     
     with rv.Html(tag='div') as main:
         Title('Circuit')
-        CircuitRows('circ', qc_with_barriers, current_selected, set_current_selected)
+        CircuitRows('circ', 'circ_barriers', qc_with_barriers, current_selected, set_current_selected)
         Title('Dirac')
-        DiracDisplay('dirac','dirac_equations', qc_with_barriers, current_selected, set_current_selected)
+        DiracDisplay('dirac','dirac_equations', 'barriers', qc_with_barriers, current_selected, set_current_selected)
         Title('Matrix')
     return main

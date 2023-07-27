@@ -11,6 +11,9 @@ import numpy as np
 from model.general_utils import *
 
 BASE_HEIGHT = 100
+STYLE_SETTINGS = {'displaycolor': {'x': (SELECTED_COLOUR, '#FFFFFF'), 'h': (SELECTED_COLOUR, '#FFFFFF'), 'cx': (SELECTED_COLOUR, '#FFFFFF')},
+                    'gatefacecolor': SELECTED_COLOUR,
+                'barrierfacecolor': SELECTED_COLOUR}
 
 # Circuit functions
 
@@ -44,6 +47,30 @@ def format_figure(mpl_obj, crop=True):
         """
     return img_html
 
+def create_circuit_barrier_images(num_bits):
+    parent_directory = os.getcwd()
+    directory_circ_barriers = "circ_barriers"
+    path_circ_barriers = os.path.join(parent_directory, directory_circ_barriers)
+    if os.path.exists(path_circ_barriers):
+        shutil.rmtree(path_circ_barriers)
+    os.mkdir(path_circ_barriers) 
+
+    qc = QuantumCircuit(num_bits)
+    qc.barrier()
+
+    buf_not_selected = BytesIO()
+    buf_selected = BytesIO()
+
+    qc.draw('mpl').savefig(buf_not_selected, bbox_inches="tight")
+    qc.draw('mpl', style=STYLE_SETTINGS).savefig(buf_selected, bbox_inches="tight")
+    
+    not_selected_image = crop_image(Image.open(buf_not_selected))
+    selected_image = crop_image(Image.open(buf_selected))
+
+    not_selected_image.save(path_circ_barriers + '/' + 'not_selected.png')
+    selected_image.save(path_circ_barriers + '/' + 'selected.png')
+
+
 def crop_image(image, right_crop_only=False):
     width, height = image.size
     if right_crop_only:
@@ -56,9 +83,6 @@ def gates_to_figures(qc, directory):
     num_qubits = qc.data[0].operation.num_qubits
     
     # TODO fix regex
-    style_settings = {'displaycolor': {'x': (SELECTED_COLOUR, '#FFFFFF'), 'h': (SELECTED_COLOUR, '#FFFFFF'), 'cx': (SELECTED_COLOUR, '#FFFFFF')},
-                      'gatefacecolor': SELECTED_COLOUR,
-                    'barrierfacecolor': SELECTED_COLOUR}
     for i in range(0, len(qc.data)):
         image_pair = []
         path = os.path.join(directory, str(i))
@@ -72,7 +96,7 @@ def gates_to_figures(qc, directory):
         buf_selected = BytesIO()
         
         qc_gate_not_selected.draw('mpl').savefig(buf_not_selected, bbox_inches="tight")
-        qc_gate_selected.draw('mpl', style=style_settings).savefig(buf_selected, bbox_inches="tight")
+        qc_gate_selected.draw('mpl', style=STYLE_SETTINGS).savefig(buf_selected, bbox_inches="tight")
         
         not_selected_image = crop_image(Image.open(buf_not_selected), right_crop_only=(i == 0 if True else False))
         selected_image = crop_image(Image.open(buf_selected), right_crop_only=(i == 0 if True else False))
