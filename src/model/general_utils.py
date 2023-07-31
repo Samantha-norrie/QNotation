@@ -10,31 +10,97 @@ import matplotlib.pyplot as plt
 import numpy as np
 
 SELECTED_COLOUR = '#f05400'
+# IDENTITY_MATRIX = Matrix(np.matrix([[1,0],[0,1]]), mtype='b')
+
 def get_index_list_from_qubits(qubit_list):
     indices = []
     for i in range(0, len(qubit_list)):
         indices.append(qubit_list[i].index)
     return indices
 
+def sequential_qubits(qubits):
+    if len(qubits) == 2 and qubits[0] == qubits[1]-1:
+        return True
+    for i in range(qubits[0], len(qubits)):
+        if i != qubits[i]:
+            print("i", i, "qubit", qubits[i])
+            print("not sequential")
+            return False
+    return True
+
 def add_identity_matrices_to_latex_gate(gate_in_latex, qubits_used_by_gate, num_qubits_in_circuit, dirac=False):
     gate_added = False
     latex_string = '$'
 
+    # Single qubit gate
+    if len(qubits_used_by_gate) == 1:
+        for i in range(0, num_qubits_in_circuit):
+            if qubits_used_by_gate.count(i) and not gate_added:
+                latex_string = latex_string + gate_in_latex
+
+                gate_added = True
+            elif not qubits_used_by_gate.count(i):
+                if dirac:
+                    latex_string = latex_string + 'I'
+                else:
+                    latex_string = latex_string + '\\begin{bmatrix}\n 1 & 0 \\ 0 & 1 \\\\\n\\end{bmatrix}'
+
+                
+            
+            if i < num_qubits_in_circuit-1 :#and not qubits_used_by_gate.count(num_qubits_in_circuit-1):
+                latex_string = latex_string + ' \otimes '
+        latex_string = latex_string + '$'
+        return latex_string
+    
+    # multiple qubit gate with sequential qubits
+    elif sequential_qubits(qubits_used_by_gate):
+        for i in range(0, num_qubits_in_circuit):
+            if qubits_used_by_gate.count(i) and not gate_added:
+                latex_string = latex_string + gate_in_latex
+
+                gate_added = True
+            elif not qubits_used_by_gate.count(i):
+                if dirac:
+                    latex_string = latex_string + 'I'
+                else:
+                    latex_string = latex_string + '\\begin{bmatrix}\n 1 & 0 \\ 0 & 1 \\\\\n\\end{bmatrix}'
+
+            if (not qubits_used_by_gate.count(i) or i == qubits_used_by_gate[-1]) and i < num_qubits_in_circuit-1:#and not qubits_used_by_gate.count(num_qubits_in_circuit-1):
+                latex_string = latex_string + ' \otimes '
+        latex_string = latex_string + '$'
+        return latex_string
+
+    # multiple qubit gate with non sequential qubits
     for i in range(0, num_qubits_in_circuit):
         if qubits_used_by_gate.count(i) and not gate_added:
             latex_string = latex_string + gate_in_latex
 
             gate_added = True
-        elif not qubits_used_by_gate.count(i):
+        elif not (i > qubits_used_by_gate[0] and i < qubits_used_by_gate[-1]) and not qubits_used_by_gate.count(i):
             if dirac:
                 latex_string = latex_string + 'I'
             else:
                 latex_string = latex_string + '\\begin{bmatrix}\n 1 & 0 \\ 0 & 1 \\\\\n\\end{bmatrix}'
 
-            
-        
-        if i < num_qubits_in_circuit-1 and not qubits_used_by_gate.count(num_qubits_in_circuit-1):
+        if (not qubits_used_by_gate.count(i) or i == qubits_used_by_gate[-1]) and not (i > qubits_used_by_gate[0] and i < qubits_used_by_gate[-1]) and i < num_qubits_in_circuit-1:#and not qubits_used_by_gate.count(num_qubits_in_circuit-1):
             latex_string = latex_string + ' \otimes '
     latex_string = latex_string + '$'
-
     return latex_string
+ 
+
+    # for i in range(0, num_qubits_in_circuit):
+    #     if qubits_used_by_gate.count(i) and not gate_added:
+    #         latex_string = latex_string + gate_in_latex
+
+    #         gate_added = True
+    #     elif not qubits_used_by_gate.count(i):
+    #         if dirac:
+    #             latex_string = latex_string + 'I'
+    #         else:
+    #             latex_string = latex_string + '\\begin{bmatrix}\n 1 & 0 \\ 0 & 1 \\\\\n\\end{bmatrix}'
+
+            
+        
+    #     if i < num_qubits_in_circuit-1 and not qubits_used_by_gate.count(num_qubits_in_circuit-1):
+    #         latex_string = latex_string + ' \otimes '
+    # latex_string = latex_string + '$'

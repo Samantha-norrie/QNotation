@@ -26,8 +26,6 @@ import sympy
 
 # Matrix functions
 
-IDENTITY_MATRIX = Matrix(np.matrix([[1,0],[0,1]]), mtype='b')
-
 def convert_operator_to_latex_src(operator):
     # Convert the NumPy array to a string representation
     arr_str = np.array2string(operator.data, separator=' ')
@@ -74,54 +72,23 @@ def create_matrix_equation_images(qc):
         instance_path = os.path.join(path_matrix, str(i))
         os.mkdir(instance_path) 
 
-        # For states
-        if data[i].operation.name == 'barrier':
-            fig, ax = plt.subplots()
-            ax.text(0.5, 0.5, '$ ? $', fontsize=80, ha='center', va='center', transform=ax.transAxes)
-            ax.axis('off')
-            plt.savefig(instance_path + '/not_selected.png', dpi=300, bbox_inches='tight')
-            plt.close()
+        if i%2==0:
+            continue
 
-            fig, ax = plt.subplots()
-            ax.text(0.5, 0.5, '$ ? $', fontsize=80, ha='center', va='center', transform=ax.transAxes, color=SELECTED_COLOUR)
-            ax.axis('off')
-            plt.savefig(instance_path + '/selected.png', dpi=300, bbox_inches='tight')
-            plt.close()
+        # Add identity matrices
+        gate_formatted_latex_src = add_identity_matrices_to_latex_gate(data[i].operation.name, get_index_list_from_qubits(data[i].qubits), qc.num_qubits)
 
-        # For gates
-        else:
+        fig, ax = plt.subplots()
+        ax.text(0.5, 0.5, gate_formatted_latex_src, fontsize=80, ha='center', va='center', transform=ax.transAxes)
+        ax.axis('off')
+        plt.savefig(instance_path + '/not_selected.png', dpi=300, bbox_inches='tight')
+        plt.close()
 
-            # Add identity matrices
-            gate_formatted_latex_src = add_identity_matrices_to_latex_gate(data[i].operation.name, get_index_list_from_qubits(data[i].qubits), qc.num_qubits)
-
-            fig, ax = plt.subplots()
-            ax.text(0.5, 0.5, gate_formatted_latex_src, fontsize=80, ha='center', va='center', transform=ax.transAxes)
-            ax.axis('off')
-            plt.savefig(instance_path + '/not_selected.png', dpi=300, bbox_inches='tight')
-            plt.close()
-
-            fig, ax = plt.subplots()
-            ax.text(0.5, 0.5, gate_formatted_latex_src, fontsize=80, ha='center', va='center', transform=ax.transAxes, color=SELECTED_COLOUR)
-            ax.axis('off')
-            plt.savefig(instance_path + '/selected.png', dpi=300, bbox_inches='tight')
-            plt.close()
-
-
-    # for i in range(0, len(matrices)):
-    #     doc = Document()
-    #     doc.documentclass = Command(
-    #     'documentclass',
-    #     options=['12pt', 'landscape'],
-    #     arguments=['standalone'],
-    # )
-    #     math = Math(data=[IDENTITY_MATRIX, 'x', matrices[i]])
-    #     doc.append(math)
-
-    #     # TODO fix local storage issue
-    #     doc.generate_pdf(str(i))
-    #     img = convert_from_path(str(i)+'.pdf')
-    #     img.save('./'+ directory_matrix+ '/'+str(i) +'.png', 'PNG')
-    #     os.remove(str(i) +'.pdf')
+        fig, ax = plt.subplots()
+        ax.text(0.5, 0.5, gate_formatted_latex_src, fontsize=80, ha='center', va='center', transform=ax.transAxes, color=SELECTED_COLOUR)
+        ax.axis('off')
+        plt.savefig(instance_path + '/selected.png', dpi=300, bbox_inches='tight')
+        plt.close()
 
 
 

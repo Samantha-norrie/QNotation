@@ -14,15 +14,17 @@ from model.general_utils import *
 def get_barrier_states(qc, num_qubits):
     states = []
 
-    for i in range(0, len(qc.data)):
+    qc_rev = qc.reverse_bits()
+
+    for i in range(0, len(qc_rev.data)):
         temp_circuit = QuantumCircuit(num_qubits)
         new_data = []
         for j in range(0, i):
-            new_data.append(qc.data[j])
+            new_data.append(qc_rev.data[j])
         temp_circuit.data = new_data
         states.append(Statevector(temp_circuit).draw(output='latex_source'))
 
-    states.append(Statevector(qc).draw(output='latex_source'))
+    states.append(Statevector(qc_rev).draw(output='latex_source'))
     return states
 
 def compile_latex_src_dirac_states(qc, barrier_states):
