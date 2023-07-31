@@ -10,7 +10,8 @@ import matplotlib.pyplot as plt
 import numpy as np
 
 SELECTED_COLOUR = '#f05400'
-# IDENTITY_MATRIX = Matrix(np.matrix([[1,0],[0,1]]), mtype='b')
+IDENTITY_MATRIX = '\\begin{bmatrix}\n 1 & 0 \\ 0 & 1 \\\\\n\\end{bmatrix}'
+IDENTITY_DIRAC = 'I'
 
 def get_index_list_from_qubits(qubit_list):
     indices = []
@@ -41,9 +42,9 @@ def add_identity_matrices_to_latex_gate(gate_in_latex, qubits_used_by_gate, num_
                 gate_added = True
             elif not qubits_used_by_gate.count(i):
                 if dirac:
-                    latex_string = latex_string + 'I'
+                    latex_string = latex_string + IDENTITY_DIRAC
                 else:
-                    latex_string = latex_string + '\\begin{bmatrix}\n 1 & 0 \\ 0 & 1 \\\\\n\\end{bmatrix}'
+                    latex_string = latex_string + IDENTITY_MATRIX
 
                 
             
@@ -61,9 +62,9 @@ def add_identity_matrices_to_latex_gate(gate_in_latex, qubits_used_by_gate, num_
                 gate_added = True
             elif not qubits_used_by_gate.count(i):
                 if dirac:
-                    latex_string = latex_string + 'I'
+                    latex_string = latex_string + IDENTITY_DIRAC
                 else:
-                    latex_string = latex_string + '\\begin{bmatrix}\n 1 & 0 \\ 0 & 1 \\\\\n\\end{bmatrix}'
+                    latex_string = latex_string + IDENTITY_MATRIX
 
             if (not qubits_used_by_gate.count(i) or i == qubits_used_by_gate[-1]) and i < num_qubits_in_circuit-1:#and not qubits_used_by_gate.count(num_qubits_in_circuit-1):
                 latex_string = latex_string + ' \otimes '
@@ -78,9 +79,9 @@ def add_identity_matrices_to_latex_gate(gate_in_latex, qubits_used_by_gate, num_
             gate_added = True
         elif not (i > qubits_used_by_gate[0] and i < qubits_used_by_gate[-1]) and not qubits_used_by_gate.count(i):
             if dirac:
-                latex_string = latex_string + 'I'
+                latex_string = latex_string + IDENTITY_DIRAC
             else:
-                latex_string = latex_string + '\\begin{bmatrix}\n 1 & 0 \\ 0 & 1 \\\\\n\\end{bmatrix}'
+                latex_string = latex_string + IDENTITY_MATRIX
 
         if (not qubits_used_by_gate.count(i) or i == qubits_used_by_gate[-1]) and not (i > qubits_used_by_gate[0] and i < qubits_used_by_gate[-1]) and i < num_qubits_in_circuit-1:#and not qubits_used_by_gate.count(num_qubits_in_circuit-1):
             latex_string = latex_string + ' \otimes '
