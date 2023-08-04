@@ -36,19 +36,6 @@ def add_barriers(qc):
     
     return qc
 
-def format_figure(mpl_obj, crop=True):
-    img_bio = BytesIO()
-    mpl_obj.savefig(img_bio, format="png", bbox_inches="tight")
-    mpl_obj.clf()
-
-    img_data = b2a_base64(img_bio.getvalue()).decode()
-    img_html = f"""
-        <div class="circuit-plot-wpr">
-            <img src="data:image/png;base64,{img_data}&#10;">
-        </div>
-        """
-    return img_html
-
 def create_circuit_barrier_images(num_bits):
     parent_directory = os.getcwd()
     directory_circ_barriers = "circ_barriers"
@@ -122,7 +109,6 @@ def create_highlighted_circuit_figures(qc: QuantumCircuit):
     
     qc = qc.copy()
     qc = add_barriers(qc)
-    separated_figures = []
 
     gates_to_figures(qc, path_circ)
 

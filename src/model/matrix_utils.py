@@ -14,11 +14,8 @@ import os
 import shutil
 import matplotlib.pyplot as plt
 from model.general_utils import *
-# plt.rcParams['text.usetex'] = True
-
 import numpy as np
 from pdf2image import convert_from_path
-
 from pylatex import Document, Section, Subsection, Tabular, Math, TikZ, Axis, \
     Plot, Figure, Matrix, Alignat, Command
 from pylatex.utils import italic

@@ -9,11 +9,8 @@ CIRCUIT_OPS_PER_ROW = 20.0
 DIRAC_OPS_PER_ROW = 10.0
 
 @reacton.component
-def Title(title_name):
-     
-     with rv.Html(tag='div', class_='d-flex',style_='height: 100px;') as main:
-        rv.TextField(label=title_name)
-        return main
+def Text(text, styling=None):
+    return rv.Html(tag='h3', children=[text], style_=styling)
 
 @reacton.component
 def ClickableImage(directory, image_number, current_selected, set_current_selected, svg=False):
@@ -83,7 +80,7 @@ def DiracEquationColumn(state_directory, equation_directory, qc, current_selecte
 @reacton.component
 def DiracEquationRow(state_directory, equation_directory, barrier_directory, qc, current_selected, set_current_selected, row_lower_bound, row_upper_bound, include_equation_start=False):
 
-    with rv.Html(tag='div', class_='d-flex justify-start',style_='height: 100px;') as main_row:
+    with rv.Html(tag='div', class_='d-flex justify-start',style_='height: 100px; margin-top: 2rem;') as main_row:
         for i in range(row_upper_bound-1, row_lower_bound-1, -1):
             # barrier
             if i%2==0:
