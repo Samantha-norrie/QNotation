@@ -26,13 +26,15 @@ def add_barriers(qc):
     
     new_data = []
     for i in range(0, len(qc.data)):
-        if qc.data[i].operation.name != 'barrier':
+        if i > 0 and qc.data[i].operation.name != 'barrier':
             barrier_to_append = barrier.copy()
             new_data.append(barrier_to_append)
 
         new_gate = qc.data[i].copy()
         new_data.append(new_gate)
     qc.data = new_data
+
+    print(qc.data)
     
     return qc
 
@@ -68,19 +70,19 @@ def crop_image(image, right_crop_only=False):
     
 def gates_to_figures(qc, directory):
     images = []
-    # Can be done as first gate will always be a barrier
-    num_qubits = qc.data[0].operation.num_qubits
+
+    num_qubits = qc.data[-1].operation.num_qubits
     
     for i in range(0, len(qc.data)):
 
-        if i%2==0:
+        if i%2!=0:
             continue
 
         path = os.path.join(directory, str(i))
         os.mkdir(path) 
         qc_gate_not_selected = QuantumCircuit(num_qubits)
         qc_gate_selected = QuantumCircuit(num_qubits)
-        
+
         qc_gate_not_selected.data.append(qc.data[i].copy())
         qc_gate_selected.data.append(qc.data[i].copy())
         buf_not_selected = BytesIO()
@@ -93,10 +95,7 @@ def gates_to_figures(qc, directory):
         selected_image = crop_image(Image.open(buf_selected), right_crop_only=(i == 0 if True else False))
 
         not_selected_image.save(path + '/' + 'not_selected.png')
-        selected_image.save(path + '/' + 'selected.png')
-        
-    
-    return images       
+        selected_image.save(path + '/' + 'selected.png')    
         
 def create_highlighted_circuit_figures(qc: QuantumCircuit):
 

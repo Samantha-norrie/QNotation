@@ -21,11 +21,12 @@ def ErrorContainer(error_message):
 @reacton.component
 def WidgetContainer(qc, qc_with_barriers):
     current_selected, set_current_selected = reacton.use_state(2)
+    starting_state_selected, set_starting_state_selected = reacton.use_state(False)
     
     with rv.Html(tag='div') as main:
         Text('Circuit', styling=NOTATION_TITLE_STYLING)
-        CircuitRows('circ', 'circ_barriers', qc_with_barriers, current_selected, set_current_selected)
+        CircuitRows('circ', 'circ_barriers', qc_with_barriers, current_selected, set_current_selected, starting_state_selected, set_starting_state_selected)
         Text('Dirac', NOTATION_TITLE_STYLING)
-        DiracDisplay('dirac','dirac_equations', 'barriers', qc_with_barriers, current_selected, set_current_selected)
+        DiracDisplay('starting_states', 'dirac','dirac_equations', 'barriers', qc_with_barriers, current_selected, set_current_selected, starting_state_selected, set_starting_state_selected)
         Text('Matrix', NOTATION_TITLE_STYLING)
     return main

@@ -5,11 +5,16 @@ from binascii import b2a_base64
 from PIL import Image
 import os
 import shutil
+from matplotlib import rcParams
+rcParams['font.family'] = 'sans-serif'
+rcParams['font.sans-serif'] = ['Tahoma']
 import matplotlib.pyplot as plt
 
 import numpy as np
 import sympy
 from model.general_utils import *
+
+CONTROLLED_PHASE = 'cp'
 
 def get_barrier_states(qc, num_qubits):
     states = []
@@ -22,15 +27,17 @@ def get_barrier_states(qc, num_qubits):
         for j in range(0, i):
             new_data.append(qc_rev.data[j])
         temp_circuit.data = new_data
-        states.append(Statevector(temp_circuit).draw(output='latex_source'))
+        states.append(Statevector(temp_circuit).reverse_qargs().draw(output='latex_source'))
 
     states.append(Statevector(qc_rev).draw(output='latex_source'))
+    print("states", states)
     return states
 
+#TODO combine this with create_dirac_state_images()
 def compile_latex_src_dirac_states(qc, barrier_states):
     latex_src_dirac_states = []
-    current_barrier_state_index = 0
-
+    current_barrier_state_index = 1
+    latex_src_dirac_states.append('$' + barrier_states[0]+'$')
     for i in range(0, len(qc)):
 
         if qc.data[i].operation.name == 'barrier':
@@ -38,7 +45,12 @@ def compile_latex_src_dirac_states(qc, barrier_states):
             current_barrier_state_index = current_barrier_state_index+1
 
         else:
-            latex_src_dirac_states.append(qc.data[i].operation.name)
+            name = qc.data[i].operation.name
+            if name == CONTROLLED_PHASE:
+                latex_src_dirac_states.append(add_identity_matrices_to_latex_gate(format_name_with_angle_value(name, qc.data[i].operation.params[0]), get_index_list_from_qubits(qc.data[i].qubits), qc.num_qubits, dirac=True))
+            else:
+                latex_src_dirac_states.append(add_identity_matrices_to_latex_gate(name, get_index_list_from_qubits(qc.data[i].qubits), qc.num_qubits, dirac=True))
+
     return latex_src_dirac_states
 
 
@@ -53,6 +65,7 @@ def create_dirac_state_images(qc_orig, qc_barriers):
 
     barrier_latex_states = get_barrier_states(qc_orig, (len(qc_barriers.data[-1].qubits)+len(qc_barriers.data[-1].clbits)))
     latex_src_dirac_states = compile_latex_src_dirac_states(qc_barriers, barrier_latex_states)
+    print("latex src states",latex_src_dirac_states)
     
     for i in range(0, len(latex_src_dirac_states)):
         fig, ax = plt.subplots()
@@ -86,7 +99,7 @@ def create_dirac_equation_images(qc):
             plt.close()
 
             fig, ax = plt.subplots()
-            ax.text(0.5, 0.5, '$ ? $', fontsize=80, ha='center', va='center', transform=ax.transAxes, color=SELECTED_COLOUR)
+            ax.text(0.5, 0.5, '$ ? $', fontsize=80, ha='center', va='center', fontfamily='helvetica', transform=ax.transAxes, color=SELECTED_COLOUR)
             ax.axis('off')
             plt.savefig(instance_path + '/selected.svg', dpi=300)
             plt.close()
@@ -95,10 +108,14 @@ def create_dirac_equation_images(qc):
         else:
 
             # Add identity matrices
-            gate_formatted_latex_src = add_identity_matrices_to_latex_gate(data[i].operation.name, get_index_list_from_qubits(data[i].qubits), qc.num_qubits, dirac=True)
-
+            name = data[i].operation.name
+            gate_formatted_latex_src = None
+            if name == CONTROLLED_PHASE:
+                gate_formatted_latex_src = add_identity_matrices_to_latex_gate(format_name_with_angle_value(name, qc.data[i].operation.params[0]), get_index_list_from_qubits(data[i].qubits), qc.num_qubits, dirac=True)
+            else:
+                gate_formatted_latex_src = add_identity_matrices_to_latex_gate(name, get_index_list_from_qubits(data[i].qubits), qc.num_qubits, dirac=True)
             fig, ax = plt.subplots()
-            ax.text(0.5, 0.5, gate_formatted_latex_src, fontsize=80, ha='center', va='center', transform=ax.transAxes)
+            ax.text(0.5, 0.5, gate_formatted_latex_src, fontsize=80, ha='center', va='center', fontfamily='helvetica', transform=ax.transAxes)
             ax.axis('off')
             plt.savefig(instance_path + '/not_selected.svg', dpi=300, bbox_inches='tight')
             plt.close()

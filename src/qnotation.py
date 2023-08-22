@@ -21,18 +21,17 @@ class QNotation:
             display(cls.view)
    
         else: 
-            qc = qc.reverse_bits()
-            print(qc.data)
 
-            # TODO fix local storage issue
+            # TODO fix local storage issue, clean this up
             qc_with_barriers = create_highlighted_circuit_figures(qc)
             create_circuit_barrier_images(qc.num_clbits+qc.num_qubits)
 
+            create_starting_state_images(qc)
             create_dirac_state_images(qc, qc_with_barriers)
             create_dirac_equation_images(qc_with_barriers)
 
             create_matrix_equation_images(qc_with_barriers)
-            clear_output()
+            # clear_output()
             cls.view = WidgetContainer(qc, qc_with_barriers)
             display(cls.view)
 
