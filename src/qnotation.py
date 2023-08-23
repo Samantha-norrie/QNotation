@@ -5,11 +5,13 @@ from model.matrix_utils import *
 from model.general_utils import *
 from view.widget_container import *
 from IPython.display import display, clear_output
-
+import os
+import get_ipython from IPython
 class QNotation:
     @classmethod
     def view_notations(cls, qc: QuantumCircuit):
-
+        # os._exit(00)
+        get_ipython().kernel.do_shutdown()
         cls.view = LoadingContainer()
         display(cls.view)
         try:

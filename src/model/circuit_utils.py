@@ -34,7 +34,7 @@ def add_barriers(qc):
         new_data.append(new_gate)
     qc.data = new_data
 
-    print(qc.data)
+    # print(qc.data)
     
     return qc
 

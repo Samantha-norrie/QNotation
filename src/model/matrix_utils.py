@@ -63,26 +63,26 @@ def create_matrix_equation_images(qc):
 
     data = qc.data
 
+    print(get_latex_src(qc))
+
     for i in range(0, len(data)):
 
         # TODO rename... refactor...
         instance_path = os.path.join(path_matrix, str(i))
         os.mkdir(instance_path) 
 
-        if i%2==0:
-            continue
-
+        example_matrix = r"""\begin{bmatrix} 1       & 1 \end{bmatrix}"""
         # Add identity matrices
-        gate_formatted_latex_src = add_identity_matrices_to_latex_gate(data[i].operation.name, get_index_list_from_qubits(data[i].qubits), qc.num_qubits)
+        # gate_formatted_latex_src = add_identity_matrices_to_latex_gate(data[i].operation.name, get_index_list_from_qubits(data[i].qubits), qc.num_qubits)
 
         fig, ax = plt.subplots()
-        ax.text(0.5, 0.5, gate_formatted_latex_src, fontsize=80, ha='center', va='center', transform=ax.transAxes)
+        ax.text(0.5, 0.5, example_matrix, fontsize=80, ha='center', va='center', transform=ax.transAxes)
         ax.axis('off')
         plt.savefig(instance_path + '/not_selected.png', dpi=300, bbox_inches='tight')
         plt.close()
 
         fig, ax = plt.subplots()
-        ax.text(0.5, 0.5, gate_formatted_latex_src, fontsize=80, ha='center', va='center', transform=ax.transAxes, color=SELECTED_COLOUR)
+        ax.text(0.5, 0.5, example_matrix, fontsize=80, ha='center', va='center', transform=ax.transAxes, color=SELECTED_COLOUR)
         ax.axis('off')
         plt.savefig(instance_path + '/selected.png', dpi=300, bbox_inches='tight')
         plt.close()

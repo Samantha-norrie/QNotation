@@ -15,6 +15,10 @@ import sympy
 from model.general_utils import *
 
 CONTROLLED_PHASE = 'cp'
+CONTROLLED_Z_ROTATION = 'crz'
+CONTROLLED_U_GATE = 'cu'
+LIST_Of_GATES_WITH_THETA_PARAM = ['cp', 'crx', 'cry', 'crz', 'cu', 'mcrx', 'mcry', 'ms', 'p', 'r', 'rx','rxx',
+                                  'ry', 'ryy', 'rzx', 'rzz', 'u']
 
 def get_barrier_states(qc, num_qubits):
     states = []
@@ -30,7 +34,7 @@ def get_barrier_states(qc, num_qubits):
         states.append(Statevector(temp_circuit).reverse_qargs().draw(output='latex_source'))
 
     states.append(Statevector(qc_rev).draw(output='latex_source'))
-    print("states", states)
+    # print("states", states)
     return states
 
 #TODO combine this with create_dirac_state_images()
@@ -65,7 +69,7 @@ def create_dirac_state_images(qc_orig, qc_barriers):
 
     barrier_latex_states = get_barrier_states(qc_orig, (len(qc_barriers.data[-1].qubits)+len(qc_barriers.data[-1].clbits)))
     latex_src_dirac_states = compile_latex_src_dirac_states(qc_barriers, barrier_latex_states)
-    print("latex src states",latex_src_dirac_states)
+    # print("latex src states",latex_src_dirac_states)
     
     for i in range(0, len(latex_src_dirac_states)):
         fig, ax = plt.subplots()
@@ -110,7 +114,9 @@ def create_dirac_equation_images(qc):
             # Add identity matrices
             name = data[i].operation.name
             gate_formatted_latex_src = None
-            if name == CONTROLLED_PHASE:
+
+            #TODO account for phi and lambda params as well
+            if name in LIST_Of_GATES_WITH_THETA_PARAM:
                 gate_formatted_latex_src = add_identity_matrices_to_latex_gate(format_name_with_angle_value(name, qc.data[i].operation.params[0]), get_index_list_from_qubits(data[i].qubits), qc.num_qubits, dirac=True)
             else:
                 gate_formatted_latex_src = add_identity_matrices_to_latex_gate(name, get_index_list_from_qubits(data[i].qubits), qc.num_qubits, dirac=True)

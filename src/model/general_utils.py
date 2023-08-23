@@ -56,6 +56,8 @@ def create_starting_state_images(qc):
     plt.close()
 
     # TODO Matrix
+    starting_vector = Operator(qc_temp)
+    print("starting vector", starting_vector)
 
 def non_starting_initialize_operation(qc):
     data = qc.data
