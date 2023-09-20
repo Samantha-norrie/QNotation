@@ -6,7 +6,8 @@ from PIL import Image
 
 BASE_HEIGHT = 100
 CIRCUIT_OPS_PER_ROW = 20.0
-DIRAC_OPS_PER_ROW = 10.0
+DIRAC_OPS_PER_ROW = 7.0
+MATRIX_OPS_PER_ROW = 7.0
 
 DIRAC = 'dirac'
 MATRIX = 'matrix'
@@ -49,15 +50,14 @@ def ClickableImage(directory, image_number, current_selected, set_current_select
     else:
         selected_image_src = f"""./{directory}/{str(image_number)}/selected{".png" if not svg else ".svg"}"""
         not_selected_image_src = f"""./{directory}/{str(image_number)}/not_selected{".png" if not svg else ".svg"}"""
-
     image = rv.Html(tag='img', attributes={"src": {selected_image_src if current_selected else not_selected_image_src}}, style_='height: 100px;')
     rv.use_event(image, 'click', change_status)
     
     return image
 
 @reacton.component
-def NonClickableImage(directory, image_number, svg=False):
-    image = rv.Html(tag='img', attributes={"src": f"""./{directory}/{str(image_number)}{".png" if not svg else ".svg"}"""}, style_='height: 100px;')
+def NonClickableImage(directory, image_number, style="", svg=False):
+    image = rv.Html(tag='img', attributes={"src": f"""./{directory}/{str(image_number)}{".png" if not svg else ".svg"}"""}, style_='height: 150px;')
     return image
 
 @reacton.component
@@ -93,11 +93,11 @@ def DiracEquationColumn(state_directory, equation_directory, qc, current_selecte
         with rv.Html(tag='div', class_='d-flex justify-start'):
             for i in range(len(qc.data)-1, -1, -1):
                 ClickableImage(equation_directory, i, True if i == current_selected else False, set_current_selected, starting_state_selected, set_starting_state_selected, True)
-            NonClickableImage(state_directory, 0, True)
+            NonClickableImage(state_directory, 0, 'height: 100px;', True)
     return main
 # starting_state_directory, state_directory, equation_directory, barrier_directory, qc, current_selected, set_current_selected, 0, int(upper_bound), starting_state_selected, set_starting_state_selected, {True if upper_bound < DIRAC_OPS_PER_ROW else False})
 @reacton.component
-def DiracEquationRow(starting_state_directory, equation_directory, barrier_directory, qc, current_selected, set_current_selected, row_lower_bound, row_upper_bound, starting_state_selected, set_starting_state_selected, include_equation_start=False):
+def EquationRow(starting_state_directory, equation_directory, barrier_directory, qc, current_selected, set_current_selected, row_lower_bound, row_upper_bound, starting_state_selected, set_starting_state_selected, include_equation_start=False, dirac=True):
 
     with rv.Html(tag='div', class_='d-flex justify-start',style_='height: 100px; margin-top: 2rem;') as main_row:
         for i in range(row_upper_bound-1, row_lower_bound-1, -1):
@@ -107,9 +107,9 @@ def DiracEquationRow(starting_state_directory, equation_directory, barrier_direc
             else:
                 ClickableImage(equation_directory, i, True if i == current_selected else False, set_current_selected, starting_state_selected, set_starting_state_selected, True)
         if include_equation_start:
-            StartingStateImage(starting_state_directory, DIRAC, current_selected, set_current_selected, starting_state_selected, set_starting_state_selected, True)
+            StartingStateImage(starting_state_directory, DIRAC if dirac else MATRIX, current_selected, set_current_selected, starting_state_selected, set_starting_state_selected, True)
     return main_row
-#                     starting_state_directory, state_directory,equation_directory, barrier_directory, qc, current_selected, set_current_selected, starting_state_selected, set_starting_state_selected
+
 @reacton.component
 def DiracEquationRows(starting_state_directory, state_directory, equation_directory, barrier_directory, qc, current_selected, set_current_selected, starting_state_selected, set_starting_state_selected):
 
@@ -119,10 +119,10 @@ def DiracEquationRows(starting_state_directory, state_directory, equation_direct
     with rv.Html(tag='div', class_='d-flex flex-column') as main:
         for i in range(0, iterations):
             if i == iterations-1:
-                DiracEquationRow(starting_state_directory, equation_directory, barrier_directory, qc, current_selected, set_current_selected, 0, 
+                EquationRow(starting_state_directory, equation_directory, barrier_directory, qc, current_selected, set_current_selected, 0, 
                                  int(upper_bound), starting_state_selected, set_starting_state_selected, {True if upper_bound < DIRAC_OPS_PER_ROW else False})
             else:
-                DiracEquationRow(starting_state_directory, equation_directory, barrier_directory, qc, current_selected, set_current_selected, int(upper_bound-DIRAC_OPS_PER_ROW), int(upper_bound), starting_state_selected, set_starting_state_selected)
+                EquationRow(starting_state_directory, equation_directory, barrier_directory, qc, current_selected, set_current_selected, int(upper_bound-DIRAC_OPS_PER_ROW), int(upper_bound), starting_state_selected, set_starting_state_selected)
                 upper_bound = upper_bound-DIRAC_OPS_PER_ROW
     return main
 
@@ -133,7 +133,7 @@ def DiracStateColumn(state_directory, current_selected, starting_state_selected)
             if starting_state_selected:
                 Text("This is the starting state of your quantum circuit!")
             else:
-                NonClickableImage(state_directory, current_selected+1, True)
+                NonClickableImage(state_directory, current_selected+1,'height: 100px;', True)
     return main
 
 @reacton.component
@@ -142,4 +142,37 @@ def DiracDisplay(starting_state_directory, state_directory, equation_directory, 
     with rv.Html(tag='div', class_='d-flex justify-start') as main:
         DiracEquationRows(starting_state_directory, state_directory,equation_directory, barrier_directory, qc, current_selected, set_current_selected, starting_state_selected, set_starting_state_selected)
         DiracStateColumn(state_directory, current_selected, starting_state_selected)
+    return main
+
+@reacton.component
+def MatrixEquationRows(starting_state_directory, state_directory, equation_directory, barrier_directory, qc, current_selected, set_current_selected, starting_state_selected, set_starting_state_selected):
+
+    iterations = math.ceil(len(qc.data)/MATRIX_OPS_PER_ROW)
+    upper_bound = len(qc.data)
+
+    with rv.Html(tag='div', class_='d-flex flex-column') as main:
+        for i in range(0, iterations):
+            if i == iterations-1:
+                EquationRow(starting_state_directory, equation_directory, barrier_directory, qc, current_selected, set_current_selected, 0, 
+                                 int(upper_bound), starting_state_selected, set_starting_state_selected, {True if upper_bound < MATRIX_OPS_PER_ROW else False}, dirac=False)
+            else:
+                EquationRow(starting_state_directory, equation_directory, barrier_directory, qc, current_selected, set_current_selected, int(upper_bound-MATRIX_OPS_PER_ROW), int(upper_bound), starting_state_selected, set_starting_state_selected, dirac=False)
+                upper_bound = upper_bound-MATRIX_OPS_PER_ROW
+    return main
+
+@reacton.component
+def MatrixStateColumn(state_directory, equation_directory, current_selected, starting_state_selected):
+
+    with rv.Col() as main : 
+        with rv.Html(tag='div', class_='d-flex justify-end') as main_row:
+            if current_selected%2 != 0 and not starting_state_selected:
+                NonClickableImage(state_directory, current_selected, "height: 200px;")
+    return main
+
+@reacton.component
+def MatrixDisplay(starting_state_directory, state_directory, equation_directory, barrier_directory, qc, current_selected, set_current_selected, starting_state_selected, set_starting_state_selected):
+
+    with rv.Html(tag='div', class_='d-flex justify-start') as main:
+        MatrixEquationRows(starting_state_directory, state_directory,equation_directory, barrier_directory, qc, current_selected, set_current_selected, starting_state_selected, set_starting_state_selected)
+        MatrixStateColumn(state_directory, equation_directory, current_selected, starting_state_selected)
     return main

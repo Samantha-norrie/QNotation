@@ -31,9 +31,9 @@ class QNotation:
             create_starting_state_images(qc)
             create_dirac_state_images(qc, qc_with_barriers)
             create_dirac_equation_images(qc_with_barriers)
-
-            create_matrix_equation_images(qc_with_barriers)
-            # clear_output()
+            create_matrix_equation_images_tabulate(qc)
+            create_matrix_state_images(qc, qc_with_barriers)
+            clear_output()
             cls.view = WidgetContainer(qc, qc_with_barriers)
             display(cls.view)
 

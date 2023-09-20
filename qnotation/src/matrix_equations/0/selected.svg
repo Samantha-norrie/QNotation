@@ -1,0 +1,586 @@
+<?xml version="1.0" encoding="utf-8" standalone="no"?>
+<!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN"
+  "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd">
+<svg xmlns:xlink="http://www.w3.org/1999/xlink" width="1726.325pt" height="714.6025pt" viewBox="0 0 1726.325 714.6025" xmlns="http://www.w3.org/2000/svg" version="1.1">
+ <metadata>
+  <rdf:RDF xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:cc="http://creativecommons.org/ns#" xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#">
+   <cc:Work>
+    <dc:type rdf:resource="http://purl.org/dc/dcmitype/StillImage"/>
+    <dc:date>2023-09-18T18:08:20.899540</dc:date>
+    <dc:format>image/svg+xml</dc:format>
+    <dc:creator>
+     <cc:Agent>
+      <dc:title>Matplotlib v3.7.1, https://matplotlib.org/</dc:title>
+     </cc:Agent>
+    </dc:creator>
+   </cc:Work>
+  </rdf:RDF>
+ </metadata>
+ <defs>
+  <style type="text/css">*{stroke-linejoin: round; stroke-linecap: butt}</style>
+ </defs>
+ <g id="figure_1">
+  <g id="patch_1">
+   <path d="M 0 714.6025 
+L 1726.325 714.6025 
+L 1726.325 0 
+L 0 0 
+z
+" style="fill: #ffffff"/>
+  </g>
+  <g id="axes_1">
+   <g id="text_1">
+    <!--  0.71 | 0    | 0    | 0    |  0.71 |  0    |  0    |  0 -->
+    <g style="fill: #f05400" transform="translate(46.73125 67.9875) scale(0.8 -0.8)">
+     <defs>
+      <path id="Tahoma-20" transform="scale(0.015625)"/>
+      <path id="Tahoma-30" d="M 3234 2328 
+Q 3234 1075 2870 489 
+Q 2506 -97 1747 -97 
+Q 978 -97 618 500 
+Q 259 1097 259 2322 
+Q 259 3581 623 4164 
+Q 988 4747 1747 4747 
+Q 2516 4747 2875 4144 
+Q 3234 3541 3234 2328 
+z
+M 2434 909 
+Q 2525 1141 2562 1494 
+Q 2600 1847 2600 2328 
+Q 2600 2806 2562 3159 
+Q 2525 3513 2431 3747 
+Q 2338 3984 2173 4107 
+Q 2009 4231 1747 4231 
+Q 1488 4231 1320 4107 
+Q 1153 3984 1056 3741 
+Q 963 3503 928 3140 
+Q 894 2778 894 2322 
+Q 894 1834 923 1506 
+Q 953 1178 1053 919 
+Q 1144 678 1311 548 
+Q 1478 419 1747 419 
+Q 2006 419 2173 542 
+Q 2341 666 2434 909 
+z
+" transform="scale(0.015625)"/>
+      <path id="Tahoma-2e" d="M 1341 0 
+L 594 0 
+L 594 891 
+L 1341 891 
+L 1341 0 
+z
+" transform="scale(0.015625)"/>
+      <path id="Tahoma-37" d="M 3263 3956 
+L 1250 0 
+L 584 0 
+L 2716 4106 
+L 309 4106 
+L 309 4653 
+L 3263 4653 
+L 3263 3956 
+z
+" transform="scale(0.015625)"/>
+      <path id="Tahoma-31" d="M 2975 0 
+L 706 0 
+L 706 475 
+L 1550 475 
+L 1550 3594 
+L 706 3594 
+L 706 4019 
+Q 1184 4019 1411 4155 
+Q 1638 4291 1666 4669 
+L 2150 4669 
+L 2150 475 
+L 2975 475 
+L 2975 0 
+z
+" transform="scale(0.015625)"/>
+      <path id="Tahoma-7c" d="M 1484 -1225 
+L 963 -1225 
+L 963 4863 
+L 1484 4863 
+L 1484 -1225 
+z
+" transform="scale(0.015625)"/>
+     </defs>
+     <use xlink:href="#Tahoma-20"/>
+     <use xlink:href="#Tahoma-30" x="31.25"/>
+     <use xlink:href="#Tahoma-2e" x="85.839844"/>
+     <use xlink:href="#Tahoma-37" x="113.738281"/>
+     <use xlink:href="#Tahoma-31" x="168.328125"/>
+     <use xlink:href="#Tahoma-20" x="222.917969"/>
+     <use xlink:href="#Tahoma-7c" x="254.167969"/>
+     <use xlink:href="#Tahoma-20" x="292.400391"/>
+     <use xlink:href="#Tahoma-30" x="323.650391"/>
+     <use xlink:href="#Tahoma-20" x="378.240234"/>
+     <use xlink:href="#Tahoma-20" x="409.490234"/>
+     <use xlink:href="#Tahoma-20" x="440.740234"/>
+     <use xlink:href="#Tahoma-20" x="471.990234"/>
+     <use xlink:href="#Tahoma-7c" x="503.240234"/>
+     <use xlink:href="#Tahoma-20" x="541.472656"/>
+     <use xlink:href="#Tahoma-30" x="572.722656"/>
+     <use xlink:href="#Tahoma-20" x="627.3125"/>
+     <use xlink:href="#Tahoma-20" x="658.5625"/>
+     <use xlink:href="#Tahoma-20" x="689.8125"/>
+     <use xlink:href="#Tahoma-20" x="721.0625"/>
+     <use xlink:href="#Tahoma-7c" x="752.3125"/>
+     <use xlink:href="#Tahoma-20" x="790.544922"/>
+     <use xlink:href="#Tahoma-30" x="821.794922"/>
+     <use xlink:href="#Tahoma-20" x="876.384766"/>
+     <use xlink:href="#Tahoma-20" x="907.634766"/>
+     <use xlink:href="#Tahoma-20" x="938.884766"/>
+     <use xlink:href="#Tahoma-20" x="970.134766"/>
+     <use xlink:href="#Tahoma-7c" x="1001.384766"/>
+     <use xlink:href="#Tahoma-20" x="1039.617188"/>
+     <use xlink:href="#Tahoma-20" x="1070.867188"/>
+     <use xlink:href="#Tahoma-30" x="1102.117188"/>
+     <use xlink:href="#Tahoma-2e" x="1156.707031"/>
+     <use xlink:href="#Tahoma-37" x="1184.605469"/>
+     <use xlink:href="#Tahoma-31" x="1239.195312"/>
+     <use xlink:href="#Tahoma-20" x="1293.785156"/>
+     <use xlink:href="#Tahoma-7c" x="1325.035156"/>
+     <use xlink:href="#Tahoma-20" x="1363.267578"/>
+     <use xlink:href="#Tahoma-20" x="1394.517578"/>
+     <use xlink:href="#Tahoma-30" x="1425.767578"/>
+     <use xlink:href="#Tahoma-20" x="1480.357422"/>
+     <use xlink:href="#Tahoma-20" x="1511.607422"/>
+     <use xlink:href="#Tahoma-20" x="1542.857422"/>
+     <use xlink:href="#Tahoma-20" x="1574.107422"/>
+     <use xlink:href="#Tahoma-7c" x="1605.357422"/>
+     <use xlink:href="#Tahoma-20" x="1643.589844"/>
+     <use xlink:href="#Tahoma-20" x="1674.839844"/>
+     <use xlink:href="#Tahoma-30" x="1706.089844"/>
+     <use xlink:href="#Tahoma-20" x="1760.679688"/>
+     <use xlink:href="#Tahoma-20" x="1791.929688"/>
+     <use xlink:href="#Tahoma-20" x="1823.179688"/>
+     <use xlink:href="#Tahoma-20" x="1854.429688"/>
+     <use xlink:href="#Tahoma-7c" x="1885.679688"/>
+     <use xlink:href="#Tahoma-20" x="1923.912109"/>
+     <use xlink:href="#Tahoma-20" x="1955.162109"/>
+     <use xlink:href="#Tahoma-30" x="1986.412109"/>
+    </g>
+    <!--  0    | 0.71 | 0    | 0    |  0    |  0.71 |  0    |  0 -->
+    <g style="fill: #f05400" transform="translate(46.73125 157.0325) scale(0.8 -0.8)">
+     <use xlink:href="#Tahoma-20"/>
+     <use xlink:href="#Tahoma-30" x="31.25"/>
+     <use xlink:href="#Tahoma-20" x="85.839844"/>
+     <use xlink:href="#Tahoma-20" x="117.089844"/>
+     <use xlink:href="#Tahoma-20" x="148.339844"/>
+     <use xlink:href="#Tahoma-20" x="179.589844"/>
+     <use xlink:href="#Tahoma-7c" x="210.839844"/>
+     <use xlink:href="#Tahoma-20" x="249.072266"/>
+     <use xlink:href="#Tahoma-30" x="280.322266"/>
+     <use xlink:href="#Tahoma-2e" x="334.912109"/>
+     <use xlink:href="#Tahoma-37" x="362.810547"/>
+     <use xlink:href="#Tahoma-31" x="417.400391"/>
+     <use xlink:href="#Tahoma-20" x="471.990234"/>
+     <use xlink:href="#Tahoma-7c" x="503.240234"/>
+     <use xlink:href="#Tahoma-20" x="541.472656"/>
+     <use xlink:href="#Tahoma-30" x="572.722656"/>
+     <use xlink:href="#Tahoma-20" x="627.3125"/>
+     <use xlink:href="#Tahoma-20" x="658.5625"/>
+     <use xlink:href="#Tahoma-20" x="689.8125"/>
+     <use xlink:href="#Tahoma-20" x="721.0625"/>
+     <use xlink:href="#Tahoma-7c" x="752.3125"/>
+     <use xlink:href="#Tahoma-20" x="790.544922"/>
+     <use xlink:href="#Tahoma-30" x="821.794922"/>
+     <use xlink:href="#Tahoma-20" x="876.384766"/>
+     <use xlink:href="#Tahoma-20" x="907.634766"/>
+     <use xlink:href="#Tahoma-20" x="938.884766"/>
+     <use xlink:href="#Tahoma-20" x="970.134766"/>
+     <use xlink:href="#Tahoma-7c" x="1001.384766"/>
+     <use xlink:href="#Tahoma-20" x="1039.617188"/>
+     <use xlink:href="#Tahoma-20" x="1070.867188"/>
+     <use xlink:href="#Tahoma-30" x="1102.117188"/>
+     <use xlink:href="#Tahoma-20" x="1156.707031"/>
+     <use xlink:href="#Tahoma-20" x="1187.957031"/>
+     <use xlink:href="#Tahoma-20" x="1219.207031"/>
+     <use xlink:href="#Tahoma-20" x="1250.457031"/>
+     <use xlink:href="#Tahoma-7c" x="1281.707031"/>
+     <use xlink:href="#Tahoma-20" x="1319.939453"/>
+     <use xlink:href="#Tahoma-20" x="1351.189453"/>
+     <use xlink:href="#Tahoma-30" x="1382.439453"/>
+     <use xlink:href="#Tahoma-2e" x="1437.029297"/>
+     <use xlink:href="#Tahoma-37" x="1464.927734"/>
+     <use xlink:href="#Tahoma-31" x="1519.517578"/>
+     <use xlink:href="#Tahoma-20" x="1574.107422"/>
+     <use xlink:href="#Tahoma-7c" x="1605.357422"/>
+     <use xlink:href="#Tahoma-20" x="1643.589844"/>
+     <use xlink:href="#Tahoma-20" x="1674.839844"/>
+     <use xlink:href="#Tahoma-30" x="1706.089844"/>
+     <use xlink:href="#Tahoma-20" x="1760.679688"/>
+     <use xlink:href="#Tahoma-20" x="1791.929688"/>
+     <use xlink:href="#Tahoma-20" x="1823.179688"/>
+     <use xlink:href="#Tahoma-20" x="1854.429688"/>
+     <use xlink:href="#Tahoma-7c" x="1885.679688"/>
+     <use xlink:href="#Tahoma-20" x="1923.912109"/>
+     <use xlink:href="#Tahoma-20" x="1955.162109"/>
+     <use xlink:href="#Tahoma-30" x="1986.412109"/>
+    </g>
+    <!--  0    | 0    | 0.71 | 0    |  0    |  0    |  0.71 |  0 -->
+    <g style="fill: #f05400" transform="translate(46.73125 246.0775) scale(0.8 -0.8)">
+     <use xlink:href="#Tahoma-20"/>
+     <use xlink:href="#Tahoma-30" x="31.25"/>
+     <use xlink:href="#Tahoma-20" x="85.839844"/>
+     <use xlink:href="#Tahoma-20" x="117.089844"/>
+     <use xlink:href="#Tahoma-20" x="148.339844"/>
+     <use xlink:href="#Tahoma-20" x="179.589844"/>
+     <use xlink:href="#Tahoma-7c" x="210.839844"/>
+     <use xlink:href="#Tahoma-20" x="249.072266"/>
+     <use xlink:href="#Tahoma-30" x="280.322266"/>
+     <use xlink:href="#Tahoma-20" x="334.912109"/>
+     <use xlink:href="#Tahoma-20" x="366.162109"/>
+     <use xlink:href="#Tahoma-20" x="397.412109"/>
+     <use xlink:href="#Tahoma-20" x="428.662109"/>
+     <use xlink:href="#Tahoma-7c" x="459.912109"/>
+     <use xlink:href="#Tahoma-20" x="498.144531"/>
+     <use xlink:href="#Tahoma-30" x="529.394531"/>
+     <use xlink:href="#Tahoma-2e" x="583.984375"/>
+     <use xlink:href="#Tahoma-37" x="611.882812"/>
+     <use xlink:href="#Tahoma-31" x="666.472656"/>
+     <use xlink:href="#Tahoma-20" x="721.0625"/>
+     <use xlink:href="#Tahoma-7c" x="752.3125"/>
+     <use xlink:href="#Tahoma-20" x="790.544922"/>
+     <use xlink:href="#Tahoma-30" x="821.794922"/>
+     <use xlink:href="#Tahoma-20" x="876.384766"/>
+     <use xlink:href="#Tahoma-20" x="907.634766"/>
+     <use xlink:href="#Tahoma-20" x="938.884766"/>
+     <use xlink:href="#Tahoma-20" x="970.134766"/>
+     <use xlink:href="#Tahoma-7c" x="1001.384766"/>
+     <use xlink:href="#Tahoma-20" x="1039.617188"/>
+     <use xlink:href="#Tahoma-20" x="1070.867188"/>
+     <use xlink:href="#Tahoma-30" x="1102.117188"/>
+     <use xlink:href="#Tahoma-20" x="1156.707031"/>
+     <use xlink:href="#Tahoma-20" x="1187.957031"/>
+     <use xlink:href="#Tahoma-20" x="1219.207031"/>
+     <use xlink:href="#Tahoma-20" x="1250.457031"/>
+     <use xlink:href="#Tahoma-7c" x="1281.707031"/>
+     <use xlink:href="#Tahoma-20" x="1319.939453"/>
+     <use xlink:href="#Tahoma-20" x="1351.189453"/>
+     <use xlink:href="#Tahoma-30" x="1382.439453"/>
+     <use xlink:href="#Tahoma-20" x="1437.029297"/>
+     <use xlink:href="#Tahoma-20" x="1468.279297"/>
+     <use xlink:href="#Tahoma-20" x="1499.529297"/>
+     <use xlink:href="#Tahoma-20" x="1530.779297"/>
+     <use xlink:href="#Tahoma-7c" x="1562.029297"/>
+     <use xlink:href="#Tahoma-20" x="1600.261719"/>
+     <use xlink:href="#Tahoma-20" x="1631.511719"/>
+     <use xlink:href="#Tahoma-30" x="1662.761719"/>
+     <use xlink:href="#Tahoma-2e" x="1717.351562"/>
+     <use xlink:href="#Tahoma-37" x="1745.25"/>
+     <use xlink:href="#Tahoma-31" x="1799.839844"/>
+     <use xlink:href="#Tahoma-20" x="1854.429688"/>
+     <use xlink:href="#Tahoma-7c" x="1885.679688"/>
+     <use xlink:href="#Tahoma-20" x="1923.912109"/>
+     <use xlink:href="#Tahoma-20" x="1955.162109"/>
+     <use xlink:href="#Tahoma-30" x="1986.412109"/>
+    </g>
+    <!--  0    | 0    | 0    | 0.71 |  0    |  0    |  0    |  0.71 -->
+    <g style="fill: #f05400" transform="translate(9.23125 335.1225) scale(0.8 -0.8)">
+     <use xlink:href="#Tahoma-20"/>
+     <use xlink:href="#Tahoma-30" x="31.25"/>
+     <use xlink:href="#Tahoma-20" x="85.839844"/>
+     <use xlink:href="#Tahoma-20" x="117.089844"/>
+     <use xlink:href="#Tahoma-20" x="148.339844"/>
+     <use xlink:href="#Tahoma-20" x="179.589844"/>
+     <use xlink:href="#Tahoma-7c" x="210.839844"/>
+     <use xlink:href="#Tahoma-20" x="249.072266"/>
+     <use xlink:href="#Tahoma-30" x="280.322266"/>
+     <use xlink:href="#Tahoma-20" x="334.912109"/>
+     <use xlink:href="#Tahoma-20" x="366.162109"/>
+     <use xlink:href="#Tahoma-20" x="397.412109"/>
+     <use xlink:href="#Tahoma-20" x="428.662109"/>
+     <use xlink:href="#Tahoma-7c" x="459.912109"/>
+     <use xlink:href="#Tahoma-20" x="498.144531"/>
+     <use xlink:href="#Tahoma-30" x="529.394531"/>
+     <use xlink:href="#Tahoma-20" x="583.984375"/>
+     <use xlink:href="#Tahoma-20" x="615.234375"/>
+     <use xlink:href="#Tahoma-20" x="646.484375"/>
+     <use xlink:href="#Tahoma-20" x="677.734375"/>
+     <use xlink:href="#Tahoma-7c" x="708.984375"/>
+     <use xlink:href="#Tahoma-20" x="747.216797"/>
+     <use xlink:href="#Tahoma-30" x="778.466797"/>
+     <use xlink:href="#Tahoma-2e" x="833.056641"/>
+     <use xlink:href="#Tahoma-37" x="860.955078"/>
+     <use xlink:href="#Tahoma-31" x="915.544922"/>
+     <use xlink:href="#Tahoma-20" x="970.134766"/>
+     <use xlink:href="#Tahoma-7c" x="1001.384766"/>
+     <use xlink:href="#Tahoma-20" x="1039.617188"/>
+     <use xlink:href="#Tahoma-20" x="1070.867188"/>
+     <use xlink:href="#Tahoma-30" x="1102.117188"/>
+     <use xlink:href="#Tahoma-20" x="1156.707031"/>
+     <use xlink:href="#Tahoma-20" x="1187.957031"/>
+     <use xlink:href="#Tahoma-20" x="1219.207031"/>
+     <use xlink:href="#Tahoma-20" x="1250.457031"/>
+     <use xlink:href="#Tahoma-7c" x="1281.707031"/>
+     <use xlink:href="#Tahoma-20" x="1319.939453"/>
+     <use xlink:href="#Tahoma-20" x="1351.189453"/>
+     <use xlink:href="#Tahoma-30" x="1382.439453"/>
+     <use xlink:href="#Tahoma-20" x="1437.029297"/>
+     <use xlink:href="#Tahoma-20" x="1468.279297"/>
+     <use xlink:href="#Tahoma-20" x="1499.529297"/>
+     <use xlink:href="#Tahoma-20" x="1530.779297"/>
+     <use xlink:href="#Tahoma-7c" x="1562.029297"/>
+     <use xlink:href="#Tahoma-20" x="1600.261719"/>
+     <use xlink:href="#Tahoma-20" x="1631.511719"/>
+     <use xlink:href="#Tahoma-30" x="1662.761719"/>
+     <use xlink:href="#Tahoma-20" x="1717.351562"/>
+     <use xlink:href="#Tahoma-20" x="1748.601562"/>
+     <use xlink:href="#Tahoma-20" x="1779.851562"/>
+     <use xlink:href="#Tahoma-20" x="1811.101562"/>
+     <use xlink:href="#Tahoma-7c" x="1842.351562"/>
+     <use xlink:href="#Tahoma-20" x="1880.583984"/>
+     <use xlink:href="#Tahoma-20" x="1911.833984"/>
+     <use xlink:href="#Tahoma-30" x="1943.083984"/>
+     <use xlink:href="#Tahoma-2e" x="1997.673828"/>
+     <use xlink:href="#Tahoma-37" x="2025.572266"/>
+     <use xlink:href="#Tahoma-31" x="2080.162109"/>
+    </g>
+    <!--  0.71 | 0    | 0    | 0    | -0.71 |  0    |  0    |  0 -->
+    <g style="fill: #f05400" transform="translate(44.7 424.1675) scale(0.8 -0.8)">
+     <defs>
+      <path id="Tahoma-2d" d="M 2044 1753 
+L 281 1753 
+L 281 2319 
+L 2044 2319 
+L 2044 1753 
+z
+" transform="scale(0.015625)"/>
+     </defs>
+     <use xlink:href="#Tahoma-20"/>
+     <use xlink:href="#Tahoma-30" x="31.25"/>
+     <use xlink:href="#Tahoma-2e" x="85.839844"/>
+     <use xlink:href="#Tahoma-37" x="113.738281"/>
+     <use xlink:href="#Tahoma-31" x="168.328125"/>
+     <use xlink:href="#Tahoma-20" x="222.917969"/>
+     <use xlink:href="#Tahoma-7c" x="254.167969"/>
+     <use xlink:href="#Tahoma-20" x="292.400391"/>
+     <use xlink:href="#Tahoma-30" x="323.650391"/>
+     <use xlink:href="#Tahoma-20" x="378.240234"/>
+     <use xlink:href="#Tahoma-20" x="409.490234"/>
+     <use xlink:href="#Tahoma-20" x="440.740234"/>
+     <use xlink:href="#Tahoma-20" x="471.990234"/>
+     <use xlink:href="#Tahoma-7c" x="503.240234"/>
+     <use xlink:href="#Tahoma-20" x="541.472656"/>
+     <use xlink:href="#Tahoma-30" x="572.722656"/>
+     <use xlink:href="#Tahoma-20" x="627.3125"/>
+     <use xlink:href="#Tahoma-20" x="658.5625"/>
+     <use xlink:href="#Tahoma-20" x="689.8125"/>
+     <use xlink:href="#Tahoma-20" x="721.0625"/>
+     <use xlink:href="#Tahoma-7c" x="752.3125"/>
+     <use xlink:href="#Tahoma-20" x="790.544922"/>
+     <use xlink:href="#Tahoma-30" x="821.794922"/>
+     <use xlink:href="#Tahoma-20" x="876.384766"/>
+     <use xlink:href="#Tahoma-20" x="907.634766"/>
+     <use xlink:href="#Tahoma-20" x="938.884766"/>
+     <use xlink:href="#Tahoma-20" x="970.134766"/>
+     <use xlink:href="#Tahoma-7c" x="1001.384766"/>
+     <use xlink:href="#Tahoma-20" x="1039.617188"/>
+     <use xlink:href="#Tahoma-2d" x="1070.867188"/>
+     <use xlink:href="#Tahoma-30" x="1107.195312"/>
+     <use xlink:href="#Tahoma-2e" x="1161.785156"/>
+     <use xlink:href="#Tahoma-37" x="1189.683594"/>
+     <use xlink:href="#Tahoma-31" x="1244.273438"/>
+     <use xlink:href="#Tahoma-20" x="1298.863281"/>
+     <use xlink:href="#Tahoma-7c" x="1330.113281"/>
+     <use xlink:href="#Tahoma-20" x="1368.345703"/>
+     <use xlink:href="#Tahoma-20" x="1399.595703"/>
+     <use xlink:href="#Tahoma-30" x="1430.845703"/>
+     <use xlink:href="#Tahoma-20" x="1485.435547"/>
+     <use xlink:href="#Tahoma-20" x="1516.685547"/>
+     <use xlink:href="#Tahoma-20" x="1547.935547"/>
+     <use xlink:href="#Tahoma-20" x="1579.185547"/>
+     <use xlink:href="#Tahoma-7c" x="1610.435547"/>
+     <use xlink:href="#Tahoma-20" x="1648.667969"/>
+     <use xlink:href="#Tahoma-20" x="1679.917969"/>
+     <use xlink:href="#Tahoma-30" x="1711.167969"/>
+     <use xlink:href="#Tahoma-20" x="1765.757812"/>
+     <use xlink:href="#Tahoma-20" x="1797.007812"/>
+     <use xlink:href="#Tahoma-20" x="1828.257812"/>
+     <use xlink:href="#Tahoma-20" x="1859.507812"/>
+     <use xlink:href="#Tahoma-7c" x="1890.757812"/>
+     <use xlink:href="#Tahoma-20" x="1928.990234"/>
+     <use xlink:href="#Tahoma-20" x="1960.240234"/>
+     <use xlink:href="#Tahoma-30" x="1991.490234"/>
+    </g>
+    <!--  0    | 0.71 | 0    | 0    |  0    | -0.71 |  0    |  0 -->
+    <g style="fill: #f05400" transform="translate(44.7 513.2125) scale(0.8 -0.8)">
+     <use xlink:href="#Tahoma-20"/>
+     <use xlink:href="#Tahoma-30" x="31.25"/>
+     <use xlink:href="#Tahoma-20" x="85.839844"/>
+     <use xlink:href="#Tahoma-20" x="117.089844"/>
+     <use xlink:href="#Tahoma-20" x="148.339844"/>
+     <use xlink:href="#Tahoma-20" x="179.589844"/>
+     <use xlink:href="#Tahoma-7c" x="210.839844"/>
+     <use xlink:href="#Tahoma-20" x="249.072266"/>
+     <use xlink:href="#Tahoma-30" x="280.322266"/>
+     <use xlink:href="#Tahoma-2e" x="334.912109"/>
+     <use xlink:href="#Tahoma-37" x="362.810547"/>
+     <use xlink:href="#Tahoma-31" x="417.400391"/>
+     <use xlink:href="#Tahoma-20" x="471.990234"/>
+     <use xlink:href="#Tahoma-7c" x="503.240234"/>
+     <use xlink:href="#Tahoma-20" x="541.472656"/>
+     <use xlink:href="#Tahoma-30" x="572.722656"/>
+     <use xlink:href="#Tahoma-20" x="627.3125"/>
+     <use xlink:href="#Tahoma-20" x="658.5625"/>
+     <use xlink:href="#Tahoma-20" x="689.8125"/>
+     <use xlink:href="#Tahoma-20" x="721.0625"/>
+     <use xlink:href="#Tahoma-7c" x="752.3125"/>
+     <use xlink:href="#Tahoma-20" x="790.544922"/>
+     <use xlink:href="#Tahoma-30" x="821.794922"/>
+     <use xlink:href="#Tahoma-20" x="876.384766"/>
+     <use xlink:href="#Tahoma-20" x="907.634766"/>
+     <use xlink:href="#Tahoma-20" x="938.884766"/>
+     <use xlink:href="#Tahoma-20" x="970.134766"/>
+     <use xlink:href="#Tahoma-7c" x="1001.384766"/>
+     <use xlink:href="#Tahoma-20" x="1039.617188"/>
+     <use xlink:href="#Tahoma-20" x="1070.867188"/>
+     <use xlink:href="#Tahoma-30" x="1102.117188"/>
+     <use xlink:href="#Tahoma-20" x="1156.707031"/>
+     <use xlink:href="#Tahoma-20" x="1187.957031"/>
+     <use xlink:href="#Tahoma-20" x="1219.207031"/>
+     <use xlink:href="#Tahoma-20" x="1250.457031"/>
+     <use xlink:href="#Tahoma-7c" x="1281.707031"/>
+     <use xlink:href="#Tahoma-20" x="1319.939453"/>
+     <use xlink:href="#Tahoma-2d" x="1351.189453"/>
+     <use xlink:href="#Tahoma-30" x="1387.517578"/>
+     <use xlink:href="#Tahoma-2e" x="1442.107422"/>
+     <use xlink:href="#Tahoma-37" x="1470.005859"/>
+     <use xlink:href="#Tahoma-31" x="1524.595703"/>
+     <use xlink:href="#Tahoma-20" x="1579.185547"/>
+     <use xlink:href="#Tahoma-7c" x="1610.435547"/>
+     <use xlink:href="#Tahoma-20" x="1648.667969"/>
+     <use xlink:href="#Tahoma-20" x="1679.917969"/>
+     <use xlink:href="#Tahoma-30" x="1711.167969"/>
+     <use xlink:href="#Tahoma-20" x="1765.757812"/>
+     <use xlink:href="#Tahoma-20" x="1797.007812"/>
+     <use xlink:href="#Tahoma-20" x="1828.257812"/>
+     <use xlink:href="#Tahoma-20" x="1859.507812"/>
+     <use xlink:href="#Tahoma-7c" x="1890.757812"/>
+     <use xlink:href="#Tahoma-20" x="1928.990234"/>
+     <use xlink:href="#Tahoma-20" x="1960.240234"/>
+     <use xlink:href="#Tahoma-30" x="1991.490234"/>
+    </g>
+    <!--  0    | 0    | 0.71 | 0    |  0    |  0    | -0.71 |  0 -->
+    <g style="fill: #f05400" transform="translate(44.7 602.2575) scale(0.8 -0.8)">
+     <use xlink:href="#Tahoma-20"/>
+     <use xlink:href="#Tahoma-30" x="31.25"/>
+     <use xlink:href="#Tahoma-20" x="85.839844"/>
+     <use xlink:href="#Tahoma-20" x="117.089844"/>
+     <use xlink:href="#Tahoma-20" x="148.339844"/>
+     <use xlink:href="#Tahoma-20" x="179.589844"/>
+     <use xlink:href="#Tahoma-7c" x="210.839844"/>
+     <use xlink:href="#Tahoma-20" x="249.072266"/>
+     <use xlink:href="#Tahoma-30" x="280.322266"/>
+     <use xlink:href="#Tahoma-20" x="334.912109"/>
+     <use xlink:href="#Tahoma-20" x="366.162109"/>
+     <use xlink:href="#Tahoma-20" x="397.412109"/>
+     <use xlink:href="#Tahoma-20" x="428.662109"/>
+     <use xlink:href="#Tahoma-7c" x="459.912109"/>
+     <use xlink:href="#Tahoma-20" x="498.144531"/>
+     <use xlink:href="#Tahoma-30" x="529.394531"/>
+     <use xlink:href="#Tahoma-2e" x="583.984375"/>
+     <use xlink:href="#Tahoma-37" x="611.882812"/>
+     <use xlink:href="#Tahoma-31" x="666.472656"/>
+     <use xlink:href="#Tahoma-20" x="721.0625"/>
+     <use xlink:href="#Tahoma-7c" x="752.3125"/>
+     <use xlink:href="#Tahoma-20" x="790.544922"/>
+     <use xlink:href="#Tahoma-30" x="821.794922"/>
+     <use xlink:href="#Tahoma-20" x="876.384766"/>
+     <use xlink:href="#Tahoma-20" x="907.634766"/>
+     <use xlink:href="#Tahoma-20" x="938.884766"/>
+     <use xlink:href="#Tahoma-20" x="970.134766"/>
+     <use xlink:href="#Tahoma-7c" x="1001.384766"/>
+     <use xlink:href="#Tahoma-20" x="1039.617188"/>
+     <use xlink:href="#Tahoma-20" x="1070.867188"/>
+     <use xlink:href="#Tahoma-30" x="1102.117188"/>
+     <use xlink:href="#Tahoma-20" x="1156.707031"/>
+     <use xlink:href="#Tahoma-20" x="1187.957031"/>
+     <use xlink:href="#Tahoma-20" x="1219.207031"/>
+     <use xlink:href="#Tahoma-20" x="1250.457031"/>
+     <use xlink:href="#Tahoma-7c" x="1281.707031"/>
+     <use xlink:href="#Tahoma-20" x="1319.939453"/>
+     <use xlink:href="#Tahoma-20" x="1351.189453"/>
+     <use xlink:href="#Tahoma-30" x="1382.439453"/>
+     <use xlink:href="#Tahoma-20" x="1437.029297"/>
+     <use xlink:href="#Tahoma-20" x="1468.279297"/>
+     <use xlink:href="#Tahoma-20" x="1499.529297"/>
+     <use xlink:href="#Tahoma-20" x="1530.779297"/>
+     <use xlink:href="#Tahoma-7c" x="1562.029297"/>
+     <use xlink:href="#Tahoma-20" x="1600.261719"/>
+     <use xlink:href="#Tahoma-2d" x="1631.511719"/>
+     <use xlink:href="#Tahoma-30" x="1667.839844"/>
+     <use xlink:href="#Tahoma-2e" x="1722.429688"/>
+     <use xlink:href="#Tahoma-37" x="1750.328125"/>
+     <use xlink:href="#Tahoma-31" x="1804.917969"/>
+     <use xlink:href="#Tahoma-20" x="1859.507812"/>
+     <use xlink:href="#Tahoma-7c" x="1890.757812"/>
+     <use xlink:href="#Tahoma-20" x="1928.990234"/>
+     <use xlink:href="#Tahoma-20" x="1960.240234"/>
+     <use xlink:href="#Tahoma-30" x="1991.490234"/>
+    </g>
+    <!--  0    | 0    | 0    | 0.71 |  0    |  0    |  0    | -0.71 -->
+    <g style="fill: #f05400" transform="translate(7.2 691.3025) scale(0.8 -0.8)">
+     <use xlink:href="#Tahoma-20"/>
+     <use xlink:href="#Tahoma-30" x="31.25"/>
+     <use xlink:href="#Tahoma-20" x="85.839844"/>
+     <use xlink:href="#Tahoma-20" x="117.089844"/>
+     <use xlink:href="#Tahoma-20" x="148.339844"/>
+     <use xlink:href="#Tahoma-20" x="179.589844"/>
+     <use xlink:href="#Tahoma-7c" x="210.839844"/>
+     <use xlink:href="#Tahoma-20" x="249.072266"/>
+     <use xlink:href="#Tahoma-30" x="280.322266"/>
+     <use xlink:href="#Tahoma-20" x="334.912109"/>
+     <use xlink:href="#Tahoma-20" x="366.162109"/>
+     <use xlink:href="#Tahoma-20" x="397.412109"/>
+     <use xlink:href="#Tahoma-20" x="428.662109"/>
+     <use xlink:href="#Tahoma-7c" x="459.912109"/>
+     <use xlink:href="#Tahoma-20" x="498.144531"/>
+     <use xlink:href="#Tahoma-30" x="529.394531"/>
+     <use xlink:href="#Tahoma-20" x="583.984375"/>
+     <use xlink:href="#Tahoma-20" x="615.234375"/>
+     <use xlink:href="#Tahoma-20" x="646.484375"/>
+     <use xlink:href="#Tahoma-20" x="677.734375"/>
+     <use xlink:href="#Tahoma-7c" x="708.984375"/>
+     <use xlink:href="#Tahoma-20" x="747.216797"/>
+     <use xlink:href="#Tahoma-30" x="778.466797"/>
+     <use xlink:href="#Tahoma-2e" x="833.056641"/>
+     <use xlink:href="#Tahoma-37" x="860.955078"/>
+     <use xlink:href="#Tahoma-31" x="915.544922"/>
+     <use xlink:href="#Tahoma-20" x="970.134766"/>
+     <use xlink:href="#Tahoma-7c" x="1001.384766"/>
+     <use xlink:href="#Tahoma-20" x="1039.617188"/>
+     <use xlink:href="#Tahoma-20" x="1070.867188"/>
+     <use xlink:href="#Tahoma-30" x="1102.117188"/>
+     <use xlink:href="#Tahoma-20" x="1156.707031"/>
+     <use xlink:href="#Tahoma-20" x="1187.957031"/>
+     <use xlink:href="#Tahoma-20" x="1219.207031"/>
+     <use xlink:href="#Tahoma-20" x="1250.457031"/>
+     <use xlink:href="#Tahoma-7c" x="1281.707031"/>
+     <use xlink:href="#Tahoma-20" x="1319.939453"/>
+     <use xlink:href="#Tahoma-20" x="1351.189453"/>
+     <use xlink:href="#Tahoma-30" x="1382.439453"/>
+     <use xlink:href="#Tahoma-20" x="1437.029297"/>
+     <use xlink:href="#Tahoma-20" x="1468.279297"/>
+     <use xlink:href="#Tahoma-20" x="1499.529297"/>
+     <use xlink:href="#Tahoma-20" x="1530.779297"/>
+     <use xlink:href="#Tahoma-7c" x="1562.029297"/>
+     <use xlink:href="#Tahoma-20" x="1600.261719"/>
+     <use xlink:href="#Tahoma-20" x="1631.511719"/>
+     <use xlink:href="#Tahoma-30" x="1662.761719"/>
+     <use xlink:href="#Tahoma-20" x="1717.351562"/>
+     <use xlink:href="#Tahoma-20" x="1748.601562"/>
+     <use xlink:href="#Tahoma-20" x="1779.851562"/>
+     <use xlink:href="#Tahoma-20" x="1811.101562"/>
+     <use xlink:href="#Tahoma-7c" x="1842.351562"/>
+     <use xlink:href="#Tahoma-20" x="1880.583984"/>
+     <use xlink:href="#Tahoma-2d" x="1911.833984"/>
+     <use xlink:href="#Tahoma-30" x="1948.162109"/>
+     <use xlink:href="#Tahoma-2e" x="2002.751953"/>
+     <use xlink:href="#Tahoma-37" x="2030.650391"/>
+     <use xlink:href="#Tahoma-31" x="2085.240234"/>
+    </g>
+   </g>
+  </g>
+ </g>
+</svg>

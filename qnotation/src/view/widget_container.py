@@ -29,4 +29,5 @@ def WidgetContainer(qc, qc_with_barriers):
         Text('Dirac', NOTATION_TITLE_STYLING)
         DiracDisplay('starting_states', 'dirac','dirac_equations', 'barriers', qc_with_barriers, current_selected, set_current_selected, starting_state_selected, set_starting_state_selected)
         Text('Matrix', NOTATION_TITLE_STYLING)
+        MatrixDisplay('starting_states', 'matrix','matrix_equations', 'barriers', qc_with_barriers, current_selected, set_current_selected, starting_state_selected, set_starting_state_selected)
     return main
