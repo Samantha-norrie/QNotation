@@ -6,6 +6,8 @@ within the context of Quantum Computing. The aforementioned notations are the th
 these notations? As stated by Richard Feynman, in order for one to truly comprehend their field and all of its nuances, they must be able
 to read and use all of its notations!
 
+An extended abstract on QNotation was published in the proceedings of IEEE Quantum Week 2023. It can be found at https://www.computer.org/csdl/proceedings-article/qce/2023/432302a373/1SuQKBiBjR6 
+
 ## How to Use (Programmer's Version)
 
 ### Installing QNotation *(Coming Soon!)*
